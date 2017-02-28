@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 全局setting配置 -->
+
+    <!-- 将数据库连接数据抽取到属性文件中方便测试 -->
+    <!-- <properties resource="/WEB-INF/classes/jdbc.properties"></properties> -->
+    <!-- 别名的定义 -->
+
+    <typeAliases>
+        <!-- 批量定义别名 ，指定包名，自动扫描包中的类，别名即为类名，首字母大小写无所谓-->
+        <package name="com.upsuns.po"/>
+    </typeAliases>
+
+    <!-- 数据库连接用数据库连接池 -->
+
+    <mappers>
+        <!-- 加载映射文件 -->
+        <!-- 这里也可以使用class来加载映射文件，前提是：使用mapper代理的方法，遵循规范，
+        并且两个文件必须同名且在同一目录
+        <mapper class="com.wxisme.mybatis0100.mapper.UserMapper"/>
+        基于class加载，可以进行批量加载
+        -->
+        <!-- 通过扫描包的方式来进行批量加载映射文件 -->
+        <package name="com.upsuns.mapper"/>
+
+    </mappers>
+</configuration>

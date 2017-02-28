@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="jdbc.properties"></properties>
+    <!-- 在XML文件中与必须用特殊字符代替 -->
+    <context id="testTables" targetRuntime="MyBatis3">
+        <!-- 是否除去生成的注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- po类所在的报名 -->
+        <javaModelGenerator targetPackage="com.upsuns.po" targetProject=".\src">
+            <!--是否用schema作为包后缀  -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 从数据库返回的值去掉前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 指定mapper所在包名 -->
+        <sqlMapGenerator targetPackage="com.upsuns.mapper" targetProject=".\src">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- 指定mapper接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.upsuns.mapper"
+                             targetProject=".\src">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 表名的指定 -->
+        <table schema="DB2ADMIN" tableName="user"></table>
+        <table schema="DB2ADMIN" tableName="document"></table>
+
+    </context>
+</generatorConfiguration>

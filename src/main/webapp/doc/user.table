@@ -1,0 +1,7 @@
+
+user_id         用户ID
+user_name       用户名
+user_password   用户密码
+nick_name       用户昵称
+user_follower   粉丝
+user_following  关注

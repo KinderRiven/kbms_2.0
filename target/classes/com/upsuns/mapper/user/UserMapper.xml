@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.upsuns.mapper.user.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.upsuns.po.user.User">
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+    </resultMap>
+
+    <select id="selectByUserId" parameterType="int" resultMap="BaseResultMap">
+        SELECT * FROM user WHERE user_id=#{userId};
+    </select>
+
+    <select id="selectByUserName" parameterType="String" resultMap="BaseResultMap">
+        SELECT * FROM user WHERE user_name=#{userName};
+    </select>
+
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO user (user_name, user_password) VALUES(#{userName}, #{password});
+    </insert>
+
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.upsuns.mapper.document.DocMapper">
+
+    <resultMap id="BaseResultMap" type="com.upsuns.po.document.Document">
+        <id column="doc_id" jdbcType="INTEGER" property="docId"/>
+        <result column="doc_name" jdbcType="VARCHAR" property="docName"/>
+        <result column="doc_path" jdbcType="VARCHAR" property="docPath"/>
+    </resultMap>
+
+    <insert id="insertDoc" parameterType="Document">
+        INSERT INTO document (doc_name, doc_path) VALUES(#{docName}, #{docPath});
+    </insert>
+
+</mapper>

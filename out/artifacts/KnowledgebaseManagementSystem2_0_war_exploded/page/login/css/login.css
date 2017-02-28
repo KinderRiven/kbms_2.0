@@ -1,0 +1,14 @@
+.login{
+    margin-bottom: 0;
+}
+
+.register{
+    margin-bottom: 0;
+}
+
+.register a:hover{
+    color: #286090;
+}
+.register a{
+    color: #5bc0de;
+}
