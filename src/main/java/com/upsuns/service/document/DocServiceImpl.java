@@ -1,5 +1,6 @@
 package com.upsuns.service.document;
 
+import com.upsuns.function.TextUtils;
 import com.upsuns.mapper.document.DocMapper;
 import com.upsuns.po.document.Document;
 import com.upsuns.po.user.User;
@@ -23,6 +24,8 @@ public class DocServiceImpl implements DocService{
         file.transferTo(saveFile);
 
         //read file
+        //String fileText = TextUtils.getTextUtils().getFileText(document.getPath());
+        //System.out.println(fileText);
 
         //mysql solver
         docMapper.insertDoc(document);

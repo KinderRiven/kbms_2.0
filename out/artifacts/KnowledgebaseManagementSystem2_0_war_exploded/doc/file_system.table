@@ -1,4 +1,7 @@
-user_id
-node_id
-node_type
-node_child
+node_id         节点编号
+user_id         节点所属用户
+node_type       节点类型（文件或文件夹）
+node_next       节点的指向
+file_id         如果为文件节点指向
+folder_name     如果为文件夹,名称
+node_info       节点信息
