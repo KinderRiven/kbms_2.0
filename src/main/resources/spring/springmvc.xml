@@ -22,7 +22,7 @@
 
     <!-- 自定义参数类型绑定 -->
 
-    <!-- file upload setting -->
+    <!-- node upload setting -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize">
             <value>9242880000</value>

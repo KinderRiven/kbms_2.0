@@ -7,10 +7,26 @@
         <id column="doc_id" jdbcType="INTEGER" property="id"/>
         <result column="doc_name" jdbcType="VARCHAR" property="name"/>
         <result column="doc_path" jdbcType="VARCHAR" property="path"/>
+        <result column="doc_size" jdbcType="INTEGER" property="size"/>
+        <result column="doc_type" jdbcType="VARCHAR" property="type"/>
+        <result column="doc_summary" jdbcType="LONGVARCHAR" property="summary"/>
+        <result column="num_collect" jdbcType="INTEGER" property="collect"/>
+        <result column="num_download" jdbcType="INTEGER" property="download"/>
+        <result column="doc_uid" jdbcType="INTEGER" property="uid"/>
+        <result column="time_modify" jdbcType="BIGINT" property="modify"/>
+        <result column="time_upload" jdbcType="BIGINT" property="upload"/>
     </resultMap>
 
-    <insert id="insertDoc" parameterType="Document">
-        INSERT INTO document (doc_name, doc_path) VALUES(#{name}, #{path});
+    <!--获得自增的id值-->
+    <insert id="insertDoc" useGeneratedKeys="true" keyProperty="id" parameterType="Document">
+        INSERT INTO document
+        (doc_name, doc_path, doc_size, doc_type, doc_summary, doc_uid, time_modify, time_upload)
+        VALUES
+        (#{name}, #{path}, #{size}, #{type}, #{summary}, #{uid}, #{modify}, #{upload});
     </insert>
+
+    <select id="selectDocByDocId" resultMap="BaseResultMap">
+        SELECT * FROM document WHERE doc_id = #{0};
+    </select>
 
 </mapper>

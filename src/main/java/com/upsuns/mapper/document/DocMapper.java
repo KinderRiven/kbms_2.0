@@ -8,4 +8,6 @@ import com.upsuns.po.document.Document;
 public interface DocMapper {
 
     public void insertDoc(Document document) throws Exception;
+
+    public Document selectDocByDocId(Integer id) throws Exception;
 }

@@ -25,6 +25,7 @@
 
     <%-- my js--%>
     <script src="/page/space/upload/js/upload-frame.js"></script>
+    <script src="/page/space/upload/js/file-tree.js"></script>
 
     <%-- my css--%>
     <link href="/page/space/css/style.css" rel="stylesheet" type="text/css">

@@ -5,11 +5,11 @@
 //if using debug
 var upload_frame_debugger = true;
 
-//allowed upload file type
+//allowed upload node type
 var allowedFileList = [
-    'PDF', 'TXT', 'DOC',    //word file
-    'MP3', 'MP4', 'AVI',    //media file
-    'JPG', 'PNG', 'GIF'     //image file
+    'PDF', 'TXT', 'DOC',    //word node
+    'MP3', 'MP4', 'AVI',    //media node
+    'JPG', 'PNG', 'GIF'     //image node
 ];
 
 //upload frame init function
@@ -27,11 +27,10 @@ function upload_frame_init(id){
         uploadExtraData : {
             'uid' : 'kinderriven'
         }                        //额外附加信息
-    }).on("filebatchuploadcomplete", function(result){
+    }).on("filebatchuploadcomplete", function(){
         //debugger
         if(upload_frame_debugger){
             console.log("Upload complete.");
-            console.log(result);
         }
     }); //upload complete run
 }

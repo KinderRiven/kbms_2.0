@@ -1,8 +1,9 @@
 package com.upsuns.service.document;
 
-import com.upsuns.function.TextUtils;
 import com.upsuns.mapper.document.DocMapper;
+import com.upsuns.mapper.node.NodeMapper;
 import com.upsuns.po.document.Document;
+import com.upsuns.po.node.Node;
 import com.upsuns.po.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,17 +18,25 @@ public class DocServiceImpl implements DocService{
     @Autowired
     private DocMapper docMapper;
 
-    //upload file
-    public void uploadFile(MultipartFile file, Document document, User user) throws Exception{
-        //save file
+    @Autowired
+    private NodeMapper nodeMapper;
+
+    //upload node
+    public void uploadFile(MultipartFile file, Document document, User user, Node node) throws Exception{
+        //save node
         File saveFile = new File(document.getPath());
         file.transferTo(saveFile);
 
-        //read file
+        //read node
         //String fileText = TextUtils.getTextUtils().getFileText(document.getPath());
         //System.out.println(fileText);
 
-        //mysql solver
+        //add document info
         docMapper.insertDoc(document);
+
+        //add node
+        node.setFid(document.getId());
+        nodeMapper.insertNode(node);
+
     }
 }

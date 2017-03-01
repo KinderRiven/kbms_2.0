@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 /*
  * Created by KinderRiven on 2017/2/26.
@@ -55,6 +56,7 @@ public class UserController {
 
         //login service
         User user = userService.login(username, password);
+        user.setRegister(new Date().getTime());
 
         if(user != null) {
             modelAndView.setViewName("/page/space/upload/jsp/upload");

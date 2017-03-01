@@ -15,6 +15,15 @@ public class User {
     private String  sex;            //user_sex
     private Integer age;            //user_age
     private String  xml;            //user_xml
+    private Long    register;       //time_register
+
+    public Long getRegister() {
+        return register;
+    }
+
+    public void setRegister(Long register) {
+        this.register = register;
+    }
 
     public User(){}
 

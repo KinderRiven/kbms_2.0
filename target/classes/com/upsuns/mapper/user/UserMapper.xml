@@ -14,6 +14,7 @@
         <result column="user_sign" jdbcType="LONGVARCHAR" property="sign"/>
         <result column="num_follower" jdbcType="INTEGER" property="follower"/>
         <result column="num_following" jdbcType="INTEGER" property="following"/>
+        <result column="time_register" jdbcType="BIGINT" property="register"/>
     </resultMap>
 
     <select id="selectByUserId" parameterType="int" resultMap="BaseResultMap">
@@ -24,11 +25,11 @@
         SELECT * FROM user WHERE user_name=#{username};
     </select>
 
-    <insert id="insertUser" parameterType="User">
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id" parameterType="User">
         INSERT INTO user
-        (user_name, user_password, nick_name, user_sex, user_age, user_xml, user_sign)
+        (user_name, user_password, nick_name, user_sex, user_age, user_xml, user_sign, time_register)
         VALUES
-        (#{username}, #{password}, #{nickname}, #{sex}, #{age}, #{xml}, #{sign});
+        (#{username}, #{password}, #{nickname}, #{sex}, #{age}, #{xml}, #{sign}, #{register});
     </insert>
 
 </mapper>

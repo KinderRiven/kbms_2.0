@@ -1,6 +1,7 @@
 package com.upsuns.service.document;
 
 import com.upsuns.po.document.Document;
+import com.upsuns.po.node.Node;
 import com.upsuns.po.user.User;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -9,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public interface DocService {
 
-    //upload file
-    public void uploadFile(MultipartFile file, Document document, User user) throws Exception;
+    //upload node
+    public void uploadFile(MultipartFile file, Document document, User user, Node node) throws Exception;
 
 }

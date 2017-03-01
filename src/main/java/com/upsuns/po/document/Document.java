@@ -1,6 +1,7 @@
 package com.upsuns.po.document;
 
 import javax.print.Doc;
+import java.util.Date;
 
 /*
  * Created by KinderRiven on 2017/2/28.
@@ -16,12 +17,35 @@ public class Document {
     private Integer collect;    //num_collect
     private Integer download;   //num_download
     private Integer uid;        //uid
+    private Long upload;        //time_upload
+    private Long modify;        //time_modify
 
-    public Document(){};
+    public Document(){
+        this.upload = new Date().getTime();
+        this.modify = new Date().getTime();
+    };
 
     public Document(String name, String path){
         this.name = name;
         this.path = path;
+        this.upload = new Date().getTime();
+        this.modify = new Date().getTime();
+    }
+
+    public Long getUpload() {
+        return upload;
+    }
+
+    public void setUpload(Long upload) {
+        this.upload = upload;
+    }
+
+    public Long getModify() {
+        return modify;
+    }
+
+    public void setModify(Long modify) {
+        this.modify = modify;
     }
 
     public Integer getId() {

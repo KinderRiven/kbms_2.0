@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 // text utils
-// using tika get file text
+// using tika get node text
 public class TextUtils {
 
     //single class
@@ -27,7 +27,7 @@ public class TextUtils {
         return textUtils;
     }
 
-    //get file text
+    //get node text
     public String getFileText(String path) throws Exception{
 
         InputStream input = new FileInputStream(path);
