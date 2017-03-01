@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.upsuns.po.user.User" %><%--
   Created by IntelliJ IDEA.
   User: KinderRiven
   Date: 2017/2/27
@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="/page/jsp/user.jsp" %>
 <html>
 <head>
     <title>用户空间-文件上传</title>
@@ -40,13 +41,21 @@
 
                 <li class="dropdown nav-user">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-user"></span>
+                        <span><img src="/resource/sao/icon/skills_hover.png"></span>
                         <span>KinderRiven</span>
                     </a>
 
                     <ul class="dropdown-menu user-menu">
-                        <li><a href="#">个人资料</a></li>
-                        <li><a href="#">退出</a></li>
+                        <li>
+                            <a href="#">
+                                <span><img src="/resource/sao/icon/option_normal.png"></span>
+                                <span>个人资料</span>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                            <span><img src="/resource/sao/icon/option_normal.png"></span>
+                            <span>退出</span>
+                        </a></li>
                     </ul>
                 </li>
             </ul>
@@ -55,9 +64,9 @@
     <div class="main-container">
         <div class="sidebar">
             <ul>
-                <li><a href="#"><img src="/resource/image/logo.png">文件列表</a></li>
-                <li><a href="#"><img src="/resource/image/logo.png">用户日志</a></li>
-                <li><a href="#"><img src="/resource/image/logo.png">私密空间</a></li>
+                <li><a href="#"><img src="/resource/sao/icon/folder_normal.png">文件列表</a></li>
+                <li><a href="#"><img src="/resource/sao/icon/appearance_normal.png">用户日志</a></li>
+                <li><a href="#"><img src="/resource/sao/icon/skills_normal.png">私密空间</a></li>
             </ul>
         </div>
         <div class="content clearfix">

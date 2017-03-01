@@ -4,13 +4,13 @@
 <mapper namespace="com.upsuns.mapper.document.DocMapper">
 
     <resultMap id="BaseResultMap" type="com.upsuns.po.document.Document">
-        <id column="doc_id" jdbcType="INTEGER" property="docId"/>
-        <result column="doc_name" jdbcType="VARCHAR" property="docName"/>
-        <result column="doc_path" jdbcType="VARCHAR" property="docPath"/>
+        <id column="doc_id" jdbcType="INTEGER" property="id"/>
+        <result column="doc_name" jdbcType="VARCHAR" property="name"/>
+        <result column="doc_path" jdbcType="VARCHAR" property="path"/>
     </resultMap>
 
     <insert id="insertDoc" parameterType="Document">
-        INSERT INTO document (doc_name, doc_path) VALUES(#{docName}, #{docPath});
+        INSERT INTO document (doc_name, doc_path) VALUES(#{name}, #{path});
     </insert>
 
 </mapper>

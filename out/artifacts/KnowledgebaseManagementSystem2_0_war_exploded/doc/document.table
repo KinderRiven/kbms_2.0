@@ -1,0 +1,9 @@
+doc_id          文档编号
+doc_uid         上传用户
+doc_name        文档名称
+doc_path        文档路径
+doc_size        文档大小
+doc_type        文档类型
+doc_summary     文档摘要
+num_collect     收藏次数
+num_download    下载次数

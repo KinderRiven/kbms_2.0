@@ -188,6 +188,11 @@
                             <i class="fa fa-lock"></i>
                             <a href="#" class="fa fa-question-circle"></a>
                         </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="nick_name" placeholder="用户昵称">
+                            <i class="fa fa-lock"></i>
+                            <a href="#" class="fa fa-question-circle"></a>
+                        </div>
                         <div class="form-submit">
                             <button class="btn btn-default" type="submit">注册</button>
                         </div>

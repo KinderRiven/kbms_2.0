@@ -4,20 +4,31 @@
 <mapper namespace="com.upsuns.mapper.user.UserMapper">
 
     <resultMap id="BaseResultMap" type="com.upsuns.po.user.User">
-        <id column="user_id" jdbcType="INTEGER" property="userId"/>
-        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <id column="user_id" jdbcType="INTEGER" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="username"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickname"/>
+        <result column="user_password" jdbcType="VARCHAR" property="password"/>
+        <result column="user_sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="user_age" jdbcType="INTEGER" property="age"/>
+        <result column="user_xml" jdbcType="LONGVARCHAR" property="xml"/>
+        <result column="user_sign" jdbcType="LONGVARCHAR" property="sign"/>
+        <result column="num_follower" jdbcType="INTEGER" property="follower"/>
+        <result column="num_following" jdbcType="INTEGER" property="following"/>
     </resultMap>
 
     <select id="selectByUserId" parameterType="int" resultMap="BaseResultMap">
-        SELECT * FROM user WHERE user_id=#{userId};
+        SELECT * FROM user WHERE user_id=#{id};
     </select>
 
     <select id="selectByUserName" parameterType="String" resultMap="BaseResultMap">
-        SELECT * FROM user WHERE user_name=#{userName};
+        SELECT * FROM user WHERE user_name=#{username};
     </select>
 
     <insert id="insertUser" parameterType="User">
-        INSERT INTO user (user_name, user_password) VALUES(#{userName}, #{password});
+        INSERT INTO user
+        (user_name, user_password, nick_name, user_sex, user_age, user_xml, user_sign)
+        VALUES
+        (#{username}, #{password}, #{nickname}, #{sex}, #{age}, #{xml}, #{sign});
     </insert>
 
 </mapper>

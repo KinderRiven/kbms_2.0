@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,9 +34,9 @@ public class DocumentController {
             @RequestParam("file") MultipartFile file,   //upload file
             @RequestParam("uid") String userId,         //upload user
             HttpServletRequest request,                 //request
-            HttpServletResponse response                //response
+            HttpServletResponse response,               //response
+            HttpSession session                         //session
     ) throws Exception {
-
         //result map
         Map<String, String> result = new HashMap<String, String>();
 
@@ -45,16 +46,12 @@ public class DocumentController {
         String docName = file.getOriginalFilename();
         String savePath = saveRoot + uuid + "-" + docName;
 
-        //file save
-        File saveFile = new File(savePath);
-        file.transferTo(saveFile);
-
         //new document
         Document document = new Document(docName, savePath);
         //new user
-        User user = new User();
+        User user = (User) session.getAttribute("user");
         //service
-        docService.uploadFile(document, user);
+        docService.uploadFile(file, document, user);
 
         result.put("result", "yes");
         return result;

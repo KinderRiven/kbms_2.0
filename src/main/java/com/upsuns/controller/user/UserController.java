@@ -28,9 +28,10 @@ public class UserController {
 
         ModelAndView modelAndView = new ModelAndView();
 
-        String userName = request.getParameter("user_name");
+        String username = request.getParameter("user_name");
         String password = request.getParameter("user_password");
-        User user = new User(userName, password);
+        String nickname = request.getParameter("nick_name");
+        User user = new User(username, password, nickname);
 
         //register service
         userService.register(user);
@@ -49,11 +50,11 @@ public class UserController {
 
         ModelAndView modelAndView = new ModelAndView();
 
-        String userName = request.getParameter("user_name");
+        String username = request.getParameter("user_name");
         String password = request.getParameter("user_password");
 
         //login service
-        User user = userService.login(userName, password);
+        User user = userService.login(username, password);
 
         if(user != null) {
             modelAndView.setViewName("/page/space/upload/jsp/upload");

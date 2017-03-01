@@ -14,9 +14,9 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     //user login
-    public User login(String userName, String password) throws Exception{
+    public User login(String username, String password) throws Exception{
 
-        User user = userMapper.selectByUserName(userName);
+        User user = userMapper.selectByUserName(username);
         return user;
 
     }

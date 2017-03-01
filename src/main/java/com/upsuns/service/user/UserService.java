@@ -7,7 +7,7 @@ import com.upsuns.po.user.User;
  */
 public interface UserService {
 
-    public User login(String userName, String password) throws Exception;
+    public User login(String username, String password) throws Exception;
 
     public void register(User user) throws Exception;
 }

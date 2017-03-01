@@ -5,17 +5,39 @@ package com.upsuns.po.user;
  */
 public class User {
 
-    private Integer userId;
-
-    private String userName;
-
-    private String password;
+    private Integer id;             //user_id
+    private String  username;       //user_name
+    private String  password;       //user_password
+    private String  nickname;       //nickname
+    private String  sign;           //user_sign
+    private Integer following;      //num_following
+    private Integer follower;       //num_follower
+    private String  sex;            //user_sex
+    private Integer age;            //user_age
+    private String  xml;            //user_xml
 
     public User(){}
 
-    public User(String userName, String password){
-        this.userName = userName;
+    public User(String username, String password, String nickname){
+        this.username = username;
         this.password = password;
+        this.nickname = nickname;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -26,19 +48,59 @@ public class User {
         this.password = password;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public String getNickname() {
+        return nickname;
     }
 
-    public String getUserName() {
-        return userName;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public String getSign() {
+        return sign;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setSign(String sign) {
+        this.sign = sign;
+    }
+
+    public Integer getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(Integer following) {
+        this.following = following;
+    }
+
+    public Integer getFollower() {
+        return follower;
+    }
+
+    public void setFollower(Integer follower) {
+        this.follower = follower;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getXml() {
+        return xml;
+    }
+
+    public void setXml(String xml) {
+        this.xml = xml;
     }
 }
