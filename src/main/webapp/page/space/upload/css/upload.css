@@ -1,18 +1,7 @@
-.upload-frame{
-}
-.upload-frame form{
-    height: 300px;
-    padding: 25px;
-}
-
-
-/* node frame */
-.file-frame{
-    margin-top: 80px;
-    padding: 0 25px;
-}
+.upload-frame form{  height: 300px;  padding: 25px;  }
 
 /* header */
+.file-frame{  margin-top: 80px;  padding: 0 25px;  }
 .file-table-head{
     border-top: 1px solid #f2f6fd;
     border-bottom: 1px solid #f2f6fd;
@@ -39,10 +28,7 @@ li input{  width: 15px;  height: 15px;  }
 file-table-head>ul>li>div{  padding: 5px;  }
 
 /* body */
-.file-table-body-item{
-    height: 40px;
-    border-bottom: 1px solid #f2f6fd;
-}
+.file-table-body-item{  height: 40px;  border-bottom: 1px solid #f2f6fd;  }
 .file-table-body-item div:hover{  background-color: snow;  }
 .file-table-body-item img{  width: 22px;  height: 22px;  }
 .file-table-body-item span{  margin-right: 6px;  }
@@ -70,12 +56,7 @@ file-table-head>ul>li>div{  padding: 5px;  }
     color: #888;
 }
 
-.file-name{
-    font-weight: 200;
-}
-.file-table-body-item div:hover{
-    cursor: hand;
-    font-size: 19px;
-}
+.file-name{  font-weight: 200;  }
+.file-table-body-item div:hover{  cursor: hand;  font-size: 19px;  }
 
 

@@ -171,7 +171,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6">
-                    <form class="form-horizontal" action="/user_login.action">
+                    <form class="form-horizontal" action="/user_login.action" method="post">
                         <span class="heading">用户登录</span>
                         <div class="form-group">
                             <input type="text" class="form-control" name="user_name" id="inputEmail3" placeholder="用户名或电子邮件">
