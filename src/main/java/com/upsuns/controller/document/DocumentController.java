@@ -6,6 +6,7 @@ import com.upsuns.po.user.User;
 import com.upsuns.service.document.DocService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,7 +32,7 @@ public class DocumentController {
     @ResponseBody
     public Map<String, String> fileUpload(
             @RequestParam("file") MultipartFile file,   //upload node
-            @RequestParam("uid") String userId,         //upload user
+            @RequestParam("cur_id") String curId,       //current id
             HttpServletRequest request,                 //request
             HttpServletResponse response,               //response
             HttpSession session                         //session
@@ -39,28 +40,17 @@ public class DocumentController {
         //result map
         Map<String, String> result = new HashMap<String, String>();
 
-        //get node info
+        //get save path
         String saveRoot = request.getServletContext().getRealPath("/") + "save/";
         String uuid = UUID.randomUUID().toString();
         String docName = file.getOriginalFilename();
         String savePath = saveRoot + uuid + "-" + docName;
 
-        //prepare for data
-
-        //new document
-        Document document = new Document(docName, savePath);
-
-        //new user
+        //get user
         User user = (User) session.getAttribute("user");
 
-        //new node
-        Node node = new Node();
-        node.setUid(user.getId());
-        node.setType("file");
-
         //service
-        docService.uploadFile(file, document, user, node);
-
+        docService.uploadFile(file, savePath, user, Integer.parseInt(curId));
         result.put("result", "yes");
         return result;
     }

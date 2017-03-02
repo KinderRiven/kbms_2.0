@@ -26,9 +26,10 @@ public class NodeController {
     private NodeService nodeService;
 
     @RequestMapping("/get_node.action")
-    public @ResponseBody String getNode(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+    public void getNode(HttpServletRequest request, HttpServletResponse response, HttpSession session)
             throws Exception{
 
+        //get request
         String nid =  request.getParameter("node_id");
         User user = (User) session.getAttribute("user");
         String xml = "";
@@ -36,18 +37,38 @@ public class NodeController {
         if(nid != null){
 
             Integer id = Integer.parseInt(nid);
-            List<Document> docList = nodeService.getFolderList(user, id);
+            List<Node> nodeList = nodeService.getFolderList(user, id);
+            Integer preNodeId = nodeService.getPreNodeId(id);
+
             //add in xml to return
             xml += "<root>";
-            for(Document doc : docList){
-                System.out.println(doc.getName());
+            xml += "<node>";
+            xml += "<id>"; xml += preNodeId.toString() ;xml += "</id>";
+            xml += "<name>...</name>";
+            xml += "<type>"; xml += "folder"; xml += "</type>";
+            xml += "<modify>-</modify>";
+            xml += "<info>上级目录</info>";
+            xml += "</node>";
+            for(Node node: nodeList){
+                xml += "<node>";
+                //id
+                xml += "<id>"; xml += node.getId().toString() ;xml += "</id>";
+                //name
+                xml += "<name>"; xml += node.getName(); xml += "</name>";
+                //type
+                xml += "<type>"; xml += node.getType(); xml += "</type>";
+                //modify
+                xml += "<modify>"; xml += node.getModifyTime().toString(); xml += "</modify>";
+                //info
+                xml += "<info>"; xml += node.getInfo(); xml += "</info>";
+                xml += "</node>";
             }
             //
             xml += "</root>";
-            return xml;
+            response.setContentType("text/html;charset=utf-8");
+            response.getWriter().println(xml);
         } else{
-            //System.out.println("参数不全");
-            return null;
+
         }
     }
 

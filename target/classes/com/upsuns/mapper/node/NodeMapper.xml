@@ -6,21 +6,21 @@
     <resultMap id="BaseResultMap" type="com.upsuns.po.node.Node">
         <id column="node_id" jdbcType="INTEGER" property="id"/>
         <result column="node_uid" jdbcType="INTEGER" property="uid"/>
+        <result column="node_name" jdbcType="VARCHAR" property="name"/>
         <result column="node_type" jdbcType="VARCHAR" property="type"/>
         <result column="node_pre" jdbcType="INTEGER" property="pre"/>
         <result column="node_next" jdbcType="INTEGER" property="next"/>
-        <result column="file_id" jdbcType="INTEGER" property="fid"/>
-        <result column="folder_name" jdbcType="VARCHAR" property="fname"/>
+        <result column="file_id" jdbcType="INTEGER" property="fileId"/>
         <result column="node_info" jdbcType="LONGVARCHAR" property="info"/>
-        <result column="time_modify" jdbcType="BIGINT" property="modify"/>
-        <result column="time_build" jdbcType="BIGINT" property="build"/>
+        <result column="time_modify" jdbcType="BIGINT" property="modifyTime"/>
+        <result column="time_build" jdbcType="BIGINT" property="buildTime"/>
     </resultMap>
 
     <insert id="insertNode"  useGeneratedKeys="true" keyProperty="id" parameterType="Node">
         INSERT INTO node
-        (node_uid, node_type, node_pre, node_next, file_id, folder_name, node_info, time_build, time_modify)
+        (node_uid, node_type, node_pre, node_next, file_id, node_name, node_info, time_build, time_modify)
         VALUES
-        (#{uid}, #{type}, #{pre}, #{next}, #{fid}, #{fname}, #{info}, #{build}, #{modify});
+        (#{uid}, #{type}, #{pre}, #{next}, #{fileId}, #{name}, #{info}, #{buildTime}, #{modifyTime});
     </insert>
 
     <update id="buildNextLink" parameterType="INTEGER">
@@ -33,6 +33,10 @@
 
     <select id="selectNodeByPre" resultMap="BaseResultMap">
         SELECT * FROM node WHERE node_uid = #{0} AND node_pre = #{1};
+    </select>
+
+    <select id="selectNodeById" resultMap="BaseResultMap">
+        SELECT * FROM node WHERE node_id = #{0};
     </select>
 
     <select id="selectRootNode" resultMap="BaseResultMap">

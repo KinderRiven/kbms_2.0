@@ -29,13 +29,13 @@ public class UserController {
 
         ModelAndView modelAndView = new ModelAndView();
 
+        //get data
         String username = request.getParameter("user_name");
         String password = request.getParameter("user_password");
         String nickname = request.getParameter("nick_name");
-        User user = new User(username, password, nickname);
 
         //register service
-        userService.register(user);
+        userService.register(username, password, nickname);
 
         modelAndView.setViewName("/page/login/jsp/login");
         return modelAndView;
@@ -56,7 +56,6 @@ public class UserController {
 
         //login service
         User user = userService.login(username, password);
-        user.setRegister(new Date().getTime());
 
         if(user != null) {
             modelAndView.setViewName("/page/space/upload/jsp/upload");

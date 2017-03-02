@@ -1,5 +1,6 @@
 package com.upsuns.service.document;
 
+import com.upsuns.function.TextUtils;
 import com.upsuns.mapper.document.DocMapper;
 import com.upsuns.mapper.node.NodeMapper;
 import com.upsuns.po.document.Document;
@@ -22,8 +23,16 @@ public class DocServiceImpl implements DocService{
     private NodeMapper nodeMapper;
 
     //upload node
-    public void uploadFile(MultipartFile file, Document document, User user, Node node) throws Exception{
+    public void uploadFile(MultipartFile file, String savePath, User user, Integer curId)
+            throws Exception{
+
         //save node
+        Document document = new Document(file.getOriginalFilename(), savePath);
+        String type = TextUtils.getTextUtils().getFileSuffix(document.getName());
+        if(type != null)
+            document.setType(type);
+        else
+            document.setType("file");
         File saveFile = new File(document.getPath());
         file.transferTo(saveFile);
 
@@ -35,7 +44,16 @@ public class DocServiceImpl implements DocService{
         docMapper.insertDoc(document);
 
         //add node
-        node.setFid(document.getId());
+        //new node
+        Node node = new Node();
+        node.setUid(user.getId());
+        if(type != null)
+            node.setType(type);
+        else
+            node.setType("file");
+        node.setPre(curId);
+        node.setFileId(document.getId());
+        node.setName(document.getName());
         nodeMapper.insertNode(node);
 
     }

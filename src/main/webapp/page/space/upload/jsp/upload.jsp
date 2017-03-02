@@ -24,8 +24,9 @@
     <link href="/plugin/bootstrap-fileinput-master/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 
     <%-- my js--%>
-    <script src="/page/space/upload/js/upload-frame.js"></script>
+    <script src="/page/space/upload/js/global_var.js"></script>
     <script src="/page/space/upload/js/file-tree.js"></script>
+    <script src="/page/space/upload/js/upload-frame.js"></script>
 
     <%-- my css--%>
     <link href="/page/space/css/style.css" rel="stylesheet" type="text/css">
@@ -70,8 +71,8 @@
                 <li><a href="#"><img src="/resource/sao/icon/skills_normal.png">私密空间</a></li>
             </ul>
         </div>
-        <div class="content clearfix">
-            <div class="upload-frame">
+        <div class="content">
+            <div class="upload-frame" id="upload-frame">
                 <form>
                     <input id="form-zh" type="file" name="file" multiple>
                 </form>
@@ -81,7 +82,7 @@
                     <div class="file-table-head">
                         <ul class="clearfix">
                             <li class="file-table-head-fname">
-                                <span><input type="checkbox"/></span>
+                                <%--<span><input type="checkbox"/></span>--%>
                                 <span>文件名称</span>
                             </li>
                             <li class="file-table-head-fsize">
@@ -92,38 +93,14 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="file-table-body">
+                    <div class="file-table-body"  id="file-table-body">
                         <div class="file-table-body-item">
                             <div class="item-fname">
-                                <span><input type="checkbox"/></span>
-                                <span><img src="/resource/sao/icon/folder_normal.png"></span>
-                                <span>C语言入门</span>
-                            </div>
-                            <div class="item-fsize">
-                                <span>-</span>
-                            </div>
-                            <div class="item-fdate">
-                                <span>2017-02-28 18:23</span>
-                            </div>
-                        </div>
-                        <div class="file-table-body-item">
-                            <div class="item-fname">
-                                <span><input type="checkbox"/></span>
-                                <span><img src="/resource/sao/icon/folder_normal.png"></span>
-                                <span>算法导论</span>
-                            </div>
-                            <div class="item-fsize">
-                                <span>-</span>
-                            </div>
-                            <div class="item-fdate">
-                                <span>2017-02-28 18:23</span>
-                            </div>
-                        </div>
-                        <div class="file-table-body-item">
-                            <div class="item-fname">
-                                <span><input type="checkbox"/></span>
-                                <span><img src="/resource/sao/icon/folder_normal.png"></span>
-                                <span>有道</span>
+                                <div>
+                                    <span><input type="checkbox"/></span>
+                                    <span><img src="/resource/sao/icon/folder_normal.png"></span>
+                                    <span class="file-name" fid="">加载文件错误</span>
+                                </div>
                             </div>
                             <div class="item-fsize">
                                 <span>-</span>

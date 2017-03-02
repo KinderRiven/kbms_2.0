@@ -1,7 +1,10 @@
 <root>
     <node>
-        <name></name>
         <id></id>
+        <name></name>
+        <type></type>
+        <size></size>
+        <info></info>
         <modify></modify>
     </node>
 </root>

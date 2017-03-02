@@ -27,6 +27,27 @@ public class TextUtils {
         return textUtils;
     }
 
+
+    public String getFileSuffix(String name) throws Exception{
+
+        String suffix = "";
+        boolean tmp = false;
+        name = name.toLowerCase();
+
+        for(int i = name.length() - 1; i >= 0; i--){
+            if(name.charAt(i) == '.') {
+                tmp = true;
+                break;
+            } else{
+                suffix = name.charAt(i) + suffix;
+            }
+        }
+        if(tmp == true)
+            return suffix;
+        else
+            return null;
+    }
+
     //get node text
     public String getFileText(String path) throws Exception{
 

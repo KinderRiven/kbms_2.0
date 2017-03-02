@@ -7,55 +7,22 @@ public class Node {
 
     private Integer id;         //node_id
     private Integer uid;        //node_uid
+    private String  name;       //folder_name
     private String  type;       //node_type
     private Integer next;       //node_next
     private Integer pre;        //node_pre
-    private Integer fid;        //file_id
-    private String  fname;      //folder_name
+    private Integer fileId;     //file_id
     private String  info;       //node_info
-    private Long    build;      //time_build
-    private Long    modify;     //time_modify
+    private Long    buildTime;  //time_build
+    private Long    modifyTime; //time_modify
 
     public Node(){
-        this.build = new Date().getTime();
-        this.modify = new Date().getTime();
+        this.buildTime = new Date().getTime();
+        this.modifyTime = new Date().getTime();
         this.next = -1;
-        this.fid = -1;
+        this.pre = -1;
+        this.fileId = -1;
     };
-
-    public Node(Integer uid, String type, Integer fid, String fname, String info, Long build, Long modify){
-        this.uid = uid;
-        this.type = type;
-        this.fid = fid;
-        this.fname = fname;
-        this.info = info;
-        this.build = build;
-        this.modify = modify;
-    }
-
-    public Long getBuild() {
-        return build;
-    }
-
-    public void setBuild(Long build) {
-        this.build = build;
-    }
-
-    public Long getModify() {
-        return modify;
-    }
-
-    public void setModify(Long modify) {
-        this.modify = modify;
-    }
-
-    public Integer getPre() {
-        return pre;
-    }
-
-    public void setPre(Integer pre) {
-        this.pre = pre;
-    }
 
     public Integer getId() {
         return id;
@@ -89,20 +56,28 @@ public class Node {
         this.next = next;
     }
 
-    public Integer getFid() {
-        return fid;
+    public Integer getPre() {
+        return pre;
     }
 
-    public void setFid(Integer fid) {
-        this.fid = fid;
+    public void setPre(Integer pre) {
+        this.pre = pre;
     }
 
-    public String getFname() {
-        return fname;
+    public Integer getFileId() {
+        return fileId;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setFileId(Integer fileId) {
+        this.fileId = fileId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getInfo() {
@@ -111,5 +86,21 @@ public class Node {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public Long getBuildTime() {
+        return buildTime;
+    }
+
+    public void setBuildTime(Long buildTime) {
+        this.buildTime = buildTime;
+    }
+
+    public Long getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(Long modifyTime) {
+        this.modifyTime = modifyTime;
     }
 }

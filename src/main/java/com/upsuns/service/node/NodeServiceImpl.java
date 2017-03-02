@@ -20,20 +20,17 @@ public class NodeServiceImpl implements  NodeService{
     @Autowired
     private DocMapper docMapper;
 
-    public List<Document> getFolderList(User user, Integer nid) throws Exception{
+    public List<Node> getFolderList(User user, Integer nid) throws Exception{
 
-        List<Document> docList = new ArrayList<Document>();
         List<Node> nodeList = nodeMapper.selectNodeByPre(user.getId(), nid);
+        return nodeList;
+    }
 
-        for(Node node : nodeList){
-            if(node.getFid() != null && node.getFid() != -1) {
-                Document doc = docMapper.selectDocByDocId(node.getFid());
-                if(doc != null){
-                    docList.add(doc);
-                }
-            }
-        }
-        return docList;
+    public Integer getPreNodeId(Integer nid) throws Exception{
+
+        Node node = nodeMapper.selectNodeById(nid);
+        Integer pre = node.getPre();
+        return pre;
     }
 
     public Node getRootNode(User user) throws Exception{

@@ -9,5 +9,5 @@ public interface UserService {
 
     public User login(String username, String password) throws Exception;
 
-    public void register(User user) throws Exception;
+    public void register(String username, String password, String nickname) throws Exception;
 }

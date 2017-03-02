@@ -22,4 +22,7 @@ public interface NodeMapper {
 
     //select root node
     public Node selectRootNode(Integer uid) throws Exception;
+
+    //
+    public Node selectNodeById(Integer id) throws Exception;
 }

@@ -11,6 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 public interface DocService {
 
     //upload node
-    public void uploadFile(MultipartFile file, Document document, User user, Node node) throws Exception;
+    public void uploadFile(MultipartFile file, String savePath, User user, Integer curId) throws Exception;
 
 }
