@@ -22,9 +22,9 @@ function upload_frame_init(id){
     console.log(current_id);
 
     frame.fileinput({
-        language : 'zh',
+        language : 'en',
         uploadUrl : '/file_upload.action',
-        dropZoneTitle : '<strong>文件上传区</strong>',
+        dropZoneTitle : '<strong>File Upload</strong>',
         showUpload : true,                          // 是否显示上传按钮
         showCaption : true,                         // 是否显示标题
         allowedFileExtensions : allowedFileList,    //允许上传的文件类型

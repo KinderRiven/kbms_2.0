@@ -17,7 +17,6 @@
     <script src="/framework/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <link href="/framework/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 
-
     <%-- plugin--%>
     <script src="/plugin/bootstrap-fileinput-master/js/fileinput.min.js"></script>
     <script src="/plugin/bootstrap-fileinput-master/js/fileinput_locale_zh.js"></script>
@@ -83,6 +82,7 @@
                         <ul class="clearfix">
                             <li class="file-table-head-fname">
                                 <%--<span><input type="checkbox"/></span>--%>
+                                <span id="add-folder"><img src="/resource/sao/icon/add_normal.png"></span>
                                 <span>文件名称</span>
                             </li>
                             <li class="file-table-head-fsize">
@@ -94,12 +94,26 @@
                         </ul>
                     </div>
                     <div class="file-table-body"  id="file-table-body">
+                        <div class="file-table-body-item" id="add-folder-item">
+                            <div class="item-fname">
+                                <img src="/resource/sao/icon/folder_normal.png">
+                                <input type="text"/>
+                                <img src="/resource/sao/icon/add_normal.png">
+                            </div>
+                            <div class="item-fsize">
+                                <span></span>
+                            </div>
+                            <div class="item-fdate">
+                                <span></span>
+                            </div>
+                        </div>
                         <div class="file-table-body-item">
                             <div class="item-fname">
-                                <div>
-                                    <span><input type="checkbox"/></span>
-                                    <span><img src="/resource/sao/icon/folder_normal.png"></span>
-                                    <span class="file-name" fid="">加载文件错误</span>
+                                <img src="/resource/sao/icon/folder_normal.png">
+                                <span class="file-name" fid="">加载文件错误</span>
+                                <div class="fname-op-box">
+                                    <img src="/resource/sao/icon/modify_normal.png">
+                                    <img src="/resource/sao/icon/appearance_normal.png">
                                 </div>
                             </div>
                             <div class="item-fsize">

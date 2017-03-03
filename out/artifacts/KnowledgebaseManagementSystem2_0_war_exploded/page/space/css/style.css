@@ -74,7 +74,7 @@ a:hover{  text-decoration: none;  }
 .content{
     margin-left: 250px;
     height: 100%;
-    overflow: scroll;
+    overflow:auto;
 }
 
 

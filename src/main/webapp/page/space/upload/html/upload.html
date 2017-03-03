@@ -1,33 +1,27 @@
-<%@ page import="com.upsuns.po.user.User" %><%--
-  Created by IntelliJ IDEA.
-  User: KinderRiven
-  Date: 2017/2/27
-  Time: 22:11
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="/page/jsp/user.jsp" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+
+    <meta charset="UTF-8">
     <title>用户空间-文件上传</title>
 
-    <%-- bootstrap + jquery --%>
+    <!--bootstrap + jquery-->
     <script src="/framework/jquery/jquery-2.2.2.min.js"></script>
     <link href="/framework/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script src="/framework/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <link href="/framework/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 
-    <%-- plugin--%>
+    <!-- plugin -->
     <script src="/plugin/bootstrap-fileinput-master/js/fileinput.min.js"></script>
     <script src="/plugin/bootstrap-fileinput-master/js/fileinput_locale_zh.js"></script>
     <link href="/plugin/bootstrap-fileinput-master/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 
-    <%-- my js--%>
+    <!-- my js -->
     <script src="/page/space/upload/js/global_var.js"></script>
     <script src="/page/space/upload/js/file-tree.js"></script>
     <script src="/page/space/upload/js/upload-frame.js"></script>
 
-    <%-- my css--%>
+    <!-- my css -->
     <link href="/page/space/css/style.css" rel="stylesheet" type="text/css">
     <link href="/page/space/upload/css/upload.css" rel="stylesheet" type="text/css">
 
@@ -81,7 +75,6 @@
                     <div class="file-table-head">
                         <ul class="clearfix">
                             <li class="file-table-head-fname">
-                                <%--<span><input type="checkbox"/></span>--%>
                                 <span id="add-folder"><img src="/resource/sao/icon/add_normal.png"></span>
                                 <span>文件名称</span>
                             </li>

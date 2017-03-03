@@ -1,5 +1,6 @@
 package com.upsuns.controller.node;
 
+import com.upsuns.function.CookieUtils;
 import com.upsuns.po.document.Document;
 import com.upsuns.po.node.Node;
 import com.upsuns.po.user.User;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -31,13 +33,15 @@ public class NodeController {
 
         //get request
         String nid =  request.getParameter("node_id");
-        User user = (User) session.getAttribute("user");
         String xml = "";
+        Cookie[] cookies = request.getCookies();
+        String username = CookieUtils.getCookieUtils().getValueByName(cookies, "username");
+        String password = CookieUtils.getCookieUtils().getValueByName(cookies, "password");
 
-        if(nid != null){
+        if(nid != null && username != null && password != null){
 
             Integer id = Integer.parseInt(nid);
-            List<Node> nodeList = nodeService.getFolderList(user, id);
+            List<Node> nodeList = nodeService.getFolderList(username, password, id);
             Integer preNodeId = nodeService.getPreNodeId(id);
 
             //add in xml to return
@@ -45,7 +49,7 @@ public class NodeController {
             xml += "<node>";
             xml += "<id>"; xml += preNodeId.toString() ;xml += "</id>";
             xml += "<name>...</name>";
-            xml += "<type>"; xml += "folder"; xml += "</type>";
+            xml += "<type>back</type>";
             xml += "<modify>-</modify>";
             xml += "<info>上级目录</info>";
             xml += "</node>";
@@ -78,11 +82,35 @@ public class NodeController {
             throws Exception{
 
         Map<String, String> root = new HashMap<String, String>();
-        User user = (User) session.getAttribute("user");
-        Node node = nodeService.getRootNode(user);
+        Cookie[] cookies = request.getCookies();
+        String username = CookieUtils.getCookieUtils().getValueByName(cookies, "username");
+        String password = CookieUtils.getCookieUtils().getValueByName(cookies, "password");
 
+        Node node = nodeService.getRootNode(username, password);
         root.put("root_id", node.getId().toString());
         return root;
+    }
+
+    @RequestMapping("/add_folder.action")
+    @ResponseBody
+    public Map<String, String> addFolder(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+            throws Exception {
+
+        Map<String, String> result = new HashMap<String, String>();
+
+        Cookie[] cookies = request.getCookies();
+        String username = CookieUtils.getCookieUtils().getValueByName(cookies, "username");
+        String password = CookieUtils.getCookieUtils().getValueByName(cookies, "password");
+        String name = request.getParameter("folder_name");
+        String cid = request.getParameter("current_id");
+
+        if(name != null && username != null && password != null && cid != null){
+            nodeService.buildFolder(username, password, name, Integer.parseInt(cid));
+            result.put("result", "yes");
+        } else{
+            result.put("result", "no");
+        }
+        return result;
     }
 
 }

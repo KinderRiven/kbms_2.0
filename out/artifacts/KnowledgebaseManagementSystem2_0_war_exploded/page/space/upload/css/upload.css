@@ -1,7 +1,7 @@
 .upload-frame form{  height: 300px;  padding: 25px;  }
 
 /* header */
-.file-frame{  margin-top: 80px;  padding: 0 25px;  }
+.file-frame{  margin-top: 80px;  padding: 0 25px;  margin-bottom: 50px;}
 .file-table-head{
     border-top: 1px solid #f2f6fd;
     border-bottom: 1px solid #f2f6fd;
@@ -28,18 +28,20 @@ li input{  width: 15px;  height: 15px;  }
 file-table-head>ul>li>div{  padding: 5px;  }
 
 /* body */
-.file-table-body-item{  height: 40px;  border-bottom: 1px solid #f2f6fd;  }
+.file-table-body-item{  height: 50px;  border-bottom: 1px solid #f2f6fd;  }
 .file-table-body-item div:hover{  background-color: snow;  }
-.file-table-body-item img{  width: 22px;  height: 22px;  }
-.file-table-body-item span{  margin-right: 6px;  }
+.file-table-body-item img{  width: 22px;  height: 22px;  margin-right: 6px; }
 .file-table-body-item input{  width: 15px;  height: 15px;  }
 
-
+.item-fname>img{
+    margin-top: 5px;
+}
 .item-fname {
     width: 60%;
     float: left;
     padding: 5px;
     font-size:18px;
+    height: 100%;
 }
 
 .item-fsize{
@@ -47,6 +49,7 @@ file-table-head>ul>li>div{  padding: 5px;  }
     float: left;
     padding: 5px;
     font-size:18px;
+    height: 100%;
 }
 .item-fdate{
     width: 24%;
@@ -54,9 +57,34 @@ file-table-head>ul>li>div{  padding: 5px;  }
     padding: 5px;
     font-size:15px;
     color: #888;
+    height: 100%;
 }
 
 .file-name{  font-weight: 200;  }
-.file-table-body-item div:hover{  cursor: hand;  font-size: 19px;  }
+.file-table-body-item :hover{  cursor: pointer;  font-size: 19px;  }
 
+.file-table-head-fname img{
+    width: 22px;
+    height: 22px;
+}
+.fname-op-box{  float: right;  height: 100%;}
+.fname-op-box span img:hover{  width: 24px;  width: 24px;  }
+.fname-op-box img{
+    vertical-align: middle;
+    margin: 5px;
+}
+#add-folder:hover{
+    cursor: pointer;
+}
 
+#add-folder-item input{
+    width: 200px;
+    height: 30px;
+    vertical-align: middle;
+    border: 1px solid rgba(58,140,255,.3);
+    background: #fff;
+    border-radius: 2px;
+    margin: 3px 0;
+    padding:0 0 0 5px;
+    margin-right: 10px;
+}
