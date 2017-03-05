@@ -1,9 +1,11 @@
 package com.upsuns.controller.document;
 
+import com.upsuns.function.SolrUtils;
 import com.upsuns.po.document.Document;
 import com.upsuns.po.node.Node;
 import com.upsuns.po.user.User;
 import com.upsuns.service.document.DocService;
+import org.apache.zookeeper.server.SessionTracker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.print.Doc;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -51,6 +55,26 @@ public class DocumentController {
 
         //service
         docService.uploadFile(file, savePath, user, Integer.parseInt(curId));
+        result.put("result", "yes");
+        return result;
+    }
+
+    @RequestMapping("/doc_search.action")
+    @ResponseBody
+    public Map<String, String> documentQuery
+            (HttpServletRequest request, HttpServletResponse response, HttpSession session)
+    throws Exception{
+
+        Map<String, String> result = new HashMap<String, String>();
+        List<Document> docs;
+        String value = request.getParameter("search_value");
+        docs = SolrUtils.queryDocument(value);
+
+        for(Document doc : docs){
+            System.out.println(doc.getId());
+            System.out.println(doc.getName());
+        }
+
         result.put("result", "yes");
         return result;
     }

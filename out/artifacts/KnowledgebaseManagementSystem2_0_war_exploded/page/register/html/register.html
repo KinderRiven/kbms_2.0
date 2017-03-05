@@ -157,7 +157,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6">
-                    <form class="form-horizontal" action="/user_register.action">
+                    <form class="form-horizontal" onsubmit="return false">
                         <span class="heading">用户快速注册</span>
                         <div class="form-group">
                             <input type="text" class="form-control" id="user_name" placeholder="用户名或电子邮件">
@@ -179,7 +179,7 @@
                             <a href="#" class="fa fa-question-circle"></a>
                         </div>
                         <div class="form-submit">
-                            <button class="btn" type="button" id="btn-submit">注册</button>
+                            <button onclick="postRegisterForm()" class="btn" type="submit" id="btn-submit">注册</button>
                         </div>
                     </form>
                 </div>

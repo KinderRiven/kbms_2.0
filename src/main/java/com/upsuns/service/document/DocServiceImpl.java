@@ -38,8 +38,8 @@ public class DocServiceImpl implements DocService{
         file.transferTo(saveFile);
 
         //read node
-        //String fileText = TextUtils.getTextUtils().getFileText(document.getPath());
-        //System.out.println(fileText);
+        String content = TextUtils.getFileText(document.getPath());
+        document.setContent(content);
 
         //add document info
         docMapper.insertDoc(document);

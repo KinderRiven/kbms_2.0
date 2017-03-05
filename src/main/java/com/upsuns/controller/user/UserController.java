@@ -76,4 +76,29 @@ public class UserController {
         }
         return map;
     }
+
+    //logout
+    @RequestMapping("/user_logout.action")
+    @ResponseBody
+    public Map<String, String> userLogout(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            HttpSession session) throws Exception{
+
+        Map<String, String> map = new HashMap<String, String>();
+
+        //清除用户cookie
+        Cookie userCookie = new Cookie("username", null);
+        userCookie.setMaxAge(0);
+        Cookie pwdCookie = new Cookie("password", null);
+        pwdCookie.setMaxAge(0);
+
+        //添加cookie
+        response.addCookie(userCookie);
+        response.addCookie(pwdCookie);
+
+        map.put("result", "yes");
+        return map;
+    }
+
 }

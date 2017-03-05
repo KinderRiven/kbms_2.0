@@ -20,8 +20,6 @@
     <!-- 配置注解的处理器映射器和处理器适配器 -->
     <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
 
-
-
     <!-- 自定义参数类型绑定 -->
 
     <!-- node upload setting -->

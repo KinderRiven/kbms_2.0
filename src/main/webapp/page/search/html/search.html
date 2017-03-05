@@ -10,14 +10,23 @@
     <script src="/framework/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <link href="/framework/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 
+    <script src="/page/search/js/search.js"></script>
     <!-- my css -->
     <link href="/page/search/css/search.css" rel="stylesheet" type="text/css">
+    <script src="/page/js/ckUtils.js"></script>
 </head>
 <body>
     <div class="nav-bar">
         <div class="user-status">
-            <a href="/page/login/html/login.html"><span>登录</span></a>
-            <a href="/page/register/html/register.html"><span>注册</span></a>
+            <script>
+                if(boolLogin() == false){
+                    document.writeln('<a href="/page/login/html/login.html"><span>登录</span></a>');
+                    document.writeln('<a href="/page/register/html/register.html"><span>注册</span></a>');
+                }else{
+                    document.writeln('<a href="/page/space/upload/html/upload.html"><span>个人空间</span></a>')
+                    document.writeln('<a href="" id="btn-logout"><span>注销</span></a>')
+                }
+            </script>
         </div>
     </div>
     <div class="container">
@@ -26,9 +35,9 @@
         </div>
         <div class="content">
             <div class="form-container">
-                <form>
+                <form onsubmit="return false">
                     <span>
-                        <input type="text" id="search-input"><span class="span-btn"><button type="submit" id="search-submit">搜索一波</button></span>
+                        <input type="text" id="search-input"><span class="span-btn"><button onclick="postQuery()" type="submit" id="search-submit">搜索一波</button></span>
                     </span>
                 </form>
             </div>

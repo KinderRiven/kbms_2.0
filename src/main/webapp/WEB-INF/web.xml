@@ -5,7 +5,7 @@
          version="3.1">
 
     <welcome-file-list>
-        <welcome-file>/page/login/jsp/login.html</welcome-file>
+        <welcome-file>/page/search/html/search.html</welcome-file>
     </welcome-file-list>
 
     <!--  Spring 容器启动监听器 -->

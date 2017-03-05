@@ -1,33 +1,34 @@
-/**
- * Created by KinderRiven on 2017/3/3.
- */
+/*Created by KinderRiven on 2017/3/3.*/
+function postLoginForm(){
 
+    var username = document.getElementById('user_name').value;
+    var password = document.getElementById('user_password').value;
+    console.log(username + ' ' + password)
+
+    $.ajax({
+        url: '/user_login.action',
+        type: 'post',
+        timeout : 10000,
+        dataType : 'json',
+        data : {
+            'user_name' : username,
+            'user_password' : password
+        },
+        success: function (data) {
+            //登陆成功重定向
+            window.location.href="/page/space/upload/html/upload.html";
+            console.log('登录成功');
+            console.log(document.cookie);
+        },
+        error: function(data) {
+            console.log('登录失败');
+        }
+    });
+}
 
 $(document).ready(function(){
 
-    $('#btn-submit').click(function(){
+    $('form').hide();
+    $('form').fadeIn(1000);
 
-        var username = document.getElementById('user_name').value;
-        var password = document.getElementById('user_password').value;
-
-        $.ajax({
-            url: '/user_login.action',
-            type: 'post',
-            timeout : 1000,
-            dataType : 'json',
-            data : {
-                'user_name' : username,
-                'user_password' : password
-            },
-            success: function (data) {
-                console.log('登录成功');
-                console.log(document.cookie);
-                //登陆成功重定向
-                window.location.href="/page/space/upload/html/upload.html";
-            },
-            error: function(data) {
-                console.log('登录失败');
-            }
-        });
-    });
 });

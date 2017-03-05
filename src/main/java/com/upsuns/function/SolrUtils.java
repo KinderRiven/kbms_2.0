@@ -7,6 +7,7 @@ import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
 
+import javax.print.Doc;
 import java.util.List;
 
 /*Created by KinderRiven on 2017/3/4.*/
@@ -27,7 +28,16 @@ public class SolrUtils {
 
         QueryResponse response = solrClient.query(solrQuery);
         List<Document> docs = response.getBeans(Document.class);
-        System.out.println(docs.size());
+
+    }
+
+    public static List<Document> queryDocument(String value) throws Exception{
+        SolrQuery solrQuery = new SolrQuery();
+        solrQuery.set("q", value);
+
+        QueryResponse response = solrClient.query(solrQuery);
+        List<Document> docs = response.getBeans(Document.class);
+        return docs;
     }
 
     //index

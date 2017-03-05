@@ -18,9 +18,4 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class TestController {
 
-    @RequestMapping("/solr_query.action")
-    public void getNode(HttpServletRequest request, HttpServletResponse response, HttpSession session)
-            throws Exception{
-        SolrUtils.queryTest("java");
-    }
 }

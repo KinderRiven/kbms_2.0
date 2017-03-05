@@ -10,9 +10,13 @@ import java.util.Date;
  */
 public class Document {
 
+    @Field
     private Integer id;         //doc_id
     @Field
     private String  name;       //doc_name
+    @Field
+    private String  content;    //doc_content
+
     private String  path;       //doc_path
     private Integer size;       //doc_size
     private String  type;       //doc_type
@@ -22,6 +26,14 @@ public class Document {
     private Integer uid;        //uid
     private Long upload;        //time_upload
     private Long modify;        //time_modify
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public Document(){
         this.upload = new Date().getTime();

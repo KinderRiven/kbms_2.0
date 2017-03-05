@@ -158,7 +158,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6">
-                    <form class="form-horizontal" action="/user_login.action" method="post">
+                    <!-- 组织表单提交, 自行ajax提交-->
+                    <form class="form-horizontal" onsubmit="return false">
                         <span class="heading">用户登录</span>
                         <div class="form-group">
                             <input type="text" class="form-control" id="user_name"  placeholder="用户名或电子邮件">
@@ -172,10 +173,9 @@
                         <div class="login form-group">
                             <div class="main-checkbox">
                                 <input type="checkbox" value="None"/>
-                                <label for="checkbox1"></label>
                             </div>
                             <span class="text">Remember me</span>
-                            <button type="button" id="btn-submit" class="btn">登录</button>
+                            <button onclick="postLoginForm()" type="submit" id="btn-submit" class="btn">登录</button>
                         </div>
                         <div class="register">
                             <a href="/page/register/html/register.html">没有账号?点击注册</a>
