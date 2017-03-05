@@ -1,5 +1,7 @@
 package com.upsuns.po.document;
 
+import org.apache.solr.client.solrj.beans.Field;
+
 import javax.print.Doc;
 import java.util.Date;
 
@@ -9,6 +11,7 @@ import java.util.Date;
 public class Document {
 
     private Integer id;         //doc_id
+    @Field
     private String  name;       //doc_name
     private String  path;       //doc_path
     private Integer size;       //doc_size

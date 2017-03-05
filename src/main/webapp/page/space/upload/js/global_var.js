@@ -5,3 +5,11 @@
 var root_id;
 var current_id;
 var file_list;
+
+function resizeWindow(){
+
+}
+
+$(document).ready(function(){
+    resizeWindow();
+});

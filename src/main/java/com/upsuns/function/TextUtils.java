@@ -21,14 +21,7 @@ public class TextUtils {
     //single class
     private static TextUtils textUtils = new TextUtils();
 
-    private TextUtils(){};
-    //get class
-    public static TextUtils getTextUtils(){
-        return textUtils;
-    }
-
-
-    public String getFileSuffix(String name) throws Exception{
+    public static String getFileSuffix(String name) throws Exception{
 
         String suffix = "";
         boolean tmp = false;
@@ -49,7 +42,7 @@ public class TextUtils {
     }
 
     //get node text
-    public String getFileText(String path) throws Exception{
+    public static String getFileText(String path) throws Exception{
 
         InputStream input = new FileInputStream(path);
         BodyContentHandler textHandler = new BodyContentHandler();

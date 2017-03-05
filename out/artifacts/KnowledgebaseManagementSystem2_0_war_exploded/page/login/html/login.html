@@ -16,8 +16,11 @@
     <script src="/page/login/js/login.js"></script>
 
     <style type="text/css">
+        form{
+            border: 2px solid;
+        }
         .form-bg{
-            background: #00b4ef;
+
         }
         .form-horizontal{
             background: #fff;
@@ -39,8 +42,8 @@
             position: relative;
         }
         .form-horizontal .form-control{
-            background: #f0f0f0;
-            border: none;
+            background: white;
+            border: 2px solid;
             border-radius: 20px;
             box-shadow: none;
             padding: 0 20px 0 45px;
@@ -79,7 +82,6 @@
             float: left;
             width: 20px;
             height: 20px;
-            background: #11a3fc;
             border-radius: 50%;
             position: relative;
             margin: 5px 0 0 5px;
@@ -124,13 +126,13 @@
         .form-horizontal .btn{
             float: right;
             font-size: 14px;
-            color: #fff;
-            background: #00b4ef;
+            color: black;
             border-radius: 30px;
-            padding: 10px 25px;
-            border: none;
-            text-transform: capitalize;
-            transition: all 0.5s ease 0s;
+            background: white;
+            border: 2px solid;
+        }
+        .form-horizontal .btn:hover{
+            background: ghostwhite;
         }
         @media only screen and (max-width: 479px){
             .form-horizontal .form-group{
@@ -148,11 +150,9 @@
 <body>
 <div class="htmleaf-container">
     <header class="htmleaf-header">
-        <h1>知识库管理系统登陆 <span>Upsuns</span></h1>
+       <!-- <h1>知识库管理系统登陆 <span>Upsuns</span></h1>
         <div class="htmleaf-links">
-            <a class="htmleaf-icon icon-htmleaf-home-outline" href="http://www.htmleaf.com/" title="jQuery之家" target="_blank"><span> jQuery之家</span></a>
-            <a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="http://www.htmleaf.com/css3/ui-design/201610114094.html" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
-        </div>
+        </div>-->
     </header>
     <div class="demo form-bg" style="padding: 20px 0;">
         <div class="container">
@@ -175,7 +175,7 @@
                                 <label for="checkbox1"></label>
                             </div>
                             <span class="text">Remember me</span>
-                            <button type="button" id="btn-submit" class="btn btn-default">登录</button>
+                            <button type="button" id="btn-submit" class="btn">登录</button>
                         </div>
                         <div class="register">
                             <a href="/page/register/html/register.html">没有账号?点击注册</a>

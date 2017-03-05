@@ -35,8 +35,8 @@ public class NodeController {
         String nid =  request.getParameter("node_id");
         String xml = "";
         Cookie[] cookies = request.getCookies();
-        String username = CookieUtils.getCookieUtils().getValueByName(cookies, "username");
-        String password = CookieUtils.getCookieUtils().getValueByName(cookies, "password");
+        String username = CookieUtils.getValueByName(cookies, "username");
+        String password = CookieUtils.getValueByName(cookies, "password");
 
         if(nid != null && username != null && password != null){
 
@@ -83,8 +83,8 @@ public class NodeController {
 
         Map<String, String> root = new HashMap<String, String>();
         Cookie[] cookies = request.getCookies();
-        String username = CookieUtils.getCookieUtils().getValueByName(cookies, "username");
-        String password = CookieUtils.getCookieUtils().getValueByName(cookies, "password");
+        String username = CookieUtils.getValueByName(cookies, "username");
+        String password = CookieUtils.getValueByName(cookies, "password");
 
         Node node = nodeService.getRootNode(username, password);
         root.put("root_id", node.getId().toString());
@@ -99,8 +99,8 @@ public class NodeController {
         Map<String, String> result = new HashMap<String, String>();
 
         Cookie[] cookies = request.getCookies();
-        String username = CookieUtils.getCookieUtils().getValueByName(cookies, "username");
-        String password = CookieUtils.getCookieUtils().getValueByName(cookies, "password");
+        String username = CookieUtils.getValueByName(cookies, "username");
+        String password = CookieUtils.getValueByName(cookies, "password");
         String name = request.getParameter("folder_name");
         String cid = request.getParameter("current_id");
 

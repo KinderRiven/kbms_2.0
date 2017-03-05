@@ -4,11 +4,17 @@
 
 .register{
     margin-bottom: 0;
+    padding-top: 30px;
+    border-top: 1px solid #f0f0f0;
 }
 
 .register a:hover{
-    color: #286090;
+    color: darkgray;
 }
 .register a{
-    color: #5bc0de;
+    color: black;
+}
+
+.bottom-line{
+    border-bottom: 1px solid;
 }

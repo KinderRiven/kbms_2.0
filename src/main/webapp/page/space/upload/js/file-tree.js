@@ -13,10 +13,26 @@ function Node(id, name, type, modify, info){
 
 }
 
-function sortNodeByType(nodes){
-    nodes.sort(function(a, b){
+function sortNodeByType(a, b){
 
-    });
+    if(a.type == 'back')
+        return -1;
+    else if(b.type == 'back')
+        return 1;
+    else if(a.type == b.type){
+        if(a.name > b.name)
+            return 1;
+        else if(a.name < b.name)
+            return -1;
+        else
+            return 0;
+    }
+    else{
+        if(a.type == 'folder') return -1;
+        if(b.type == 'folder') return 1;
+        else
+            return 0;
+    }
 }
 
 function parseXML(xml){
@@ -57,11 +73,11 @@ function parseXML(xml){
 function getImageByType(type){
 
     if(type == 'folder')
-        return '/resource/sao/icon/file_normal.png';
+        return '/resource/sao/icon/folder_normal.png';
     else if(type == 'jpg' || type == 'png' || type == 'gif')
-        return '/resource/sao/icon/file_normal.png';
-    else if(type == 'txt' || type == 'pdf' || type == 'doc')
         return '/resource/sao/icon/Media/landskape_normal.png';
+    else if(type == 'txt' || type == 'pdf' || type == 'doc')
+        return '/resource/sao/icon/file_normal.png';
     else if(type == 'back')
         return '/resource/sao/icon/System/back_normal.png';
     else
@@ -74,6 +90,8 @@ function updateFileFrame(data){
     var nodes = parseXML(data);
     var html = '';
 
+    //console.log(nodes);
+    nodes.sort(sortNodeByType);
     //nodes.sort(nodes);
 
     var build_item = '';

@@ -1,12 +1,16 @@
 body{  font-family: "Microsoft YaHei","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif;  }
-body{  overflow: hidden;  }
+body{
+
+}
 
 /* header */
-.header{  background: #4d7496;  min-height: 40px;  border-bottom: 5px solid; }
-.navbar-brand{  margin: 0;  }
+.header{  background: black;  min-height: 40px;  border-bottom: 5px solid; }
+.navbar-brand{
+    margin: 0;
+    color: white;
+}
 .navbar-brand:hover{
-    color: #fff;
-    background: #5681a7;
+    color: white;
     background: rgba(255,255,255,0.05);
 }
 
@@ -20,7 +24,7 @@ body{  overflow: hidden;  }
 .navbar-header a{
     font-size: 28px;
     font-weight: 600;
-    color: #D5D6E2;
+    color: white;
 }
 li{ list-style-type: none;  }
 .nav-user>a{  color: white; }
@@ -31,7 +35,7 @@ a:hover{  text-decoration: none;  }
 /* sider */
 .sidebar{
     top: 54px;
-    position: absolute;
+    position: fixed;
     width: 250px;
     left: 0;
     height: 100%;

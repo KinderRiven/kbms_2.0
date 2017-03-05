@@ -1,0 +1,83 @@
+body{
+    font-family: "Microsoft YaHei","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif;
+}
+
+.nav-bar{
+    height: 30px;
+    border-bottom: 2px solid;
+    background: white;
+}
+
+.container{
+    text-align: center;
+    padding-top: 100px;
+}
+
+.header h1{
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+.header h1 span{
+    display: block;
+    font-size: 60%;
+    font-weight: 400;
+    padding: 0.8em 0 0.5em 0;
+}
+
+.form-container{
+    margin-top: 20px;
+}
+
+#search-input{
+    width: 600px;
+    height: 40px;
+    padding: 5px;
+    font-size: 20px;
+    margin-right: 0;
+    vertical-align: middle;
+    border: 2px solid;
+}
+.span-btn{
+    margin-left: 0;
+}
+
+#search-submit{
+    height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+    vertical-align: middle;
+    background-color: black;
+    border: 0 solid;
+    color: white;
+}
+
+.user-status{
+    float: right;
+    margin-right: 20px;
+    height: 100%;
+}
+.user-status a{
+    vertical-align: middle;
+    font-size: 15px;
+    color: black;
+    margin-right: 5px;
+    text-decoration: underline;
+}
+
+.nav-foot{
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: white;
+    border-top:2px solid;
+}
+
+.nav-foot a{
+    color: black
+}

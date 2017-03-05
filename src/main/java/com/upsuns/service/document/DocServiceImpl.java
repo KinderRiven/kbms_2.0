@@ -1,5 +1,6 @@
 package com.upsuns.service.document;
 
+import com.upsuns.function.SolrUtils;
 import com.upsuns.function.TextUtils;
 import com.upsuns.mapper.document.DocMapper;
 import com.upsuns.mapper.node.NodeMapper;
@@ -28,7 +29,7 @@ public class DocServiceImpl implements DocService{
 
         //save node
         Document document = new Document(file.getOriginalFilename(), savePath);
-        String type = TextUtils.getTextUtils().getFileSuffix(document.getName());
+        String type = TextUtils.getFileSuffix(document.getName());
         if(type != null)
             document.setType(type);
         else
@@ -42,6 +43,7 @@ public class DocServiceImpl implements DocService{
 
         //add document info
         docMapper.insertDoc(document);
+        SolrUtils.indexDocument(document);
 
         //add node
         //new node
