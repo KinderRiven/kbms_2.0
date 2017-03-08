@@ -7,9 +7,9 @@ var upload_frame_debugger = false;
 
 //allowed upload node type
 var allowedFileList = [
-    'PDF', 'TXT', 'DOC',    //word node
-    'MP3', 'MP4', 'AVI',    //media node
-    'JPG', 'PNG', 'GIF'     //image node
+    'PDF', 'TXT', 'DOC','DOCX',
+    'MP3', 'MP4', 'AVI',
+    'JPG', 'PNG', 'GIF'
 ];
 
 //upload frame init function

@@ -24,6 +24,12 @@ public class Node {
         this.fileId = -1;
     };
 
+    public Node(int id, String name, String type){
+        this.id = id;
+        this.name = name;
+        this.type = type;
+    }
+
     public Integer getId() {
         return id;
     }

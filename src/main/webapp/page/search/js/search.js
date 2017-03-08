@@ -15,6 +15,7 @@ function postQuery(){
         },
         success: function (data) {
             console.log('查询成功');
+            console.log(data);
             window.location.href = "/page/list/html/list.html";
         },
         error: function(data) {
@@ -36,6 +37,7 @@ $(document).ready(function(){
             type: 'post',
             timeout : 1000,
             dataType : 'json',
+            cache : false,
             data : {},
             success: function (data) {
                 console.log('注销成功');

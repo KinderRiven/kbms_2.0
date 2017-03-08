@@ -15,6 +15,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,15 +29,18 @@ public class NodeController {
     private NodeService nodeService;
 
     @RequestMapping("/get_node.action")
-    public void getNode(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+    @ResponseBody
+    public List<Node> getNode(HttpServletRequest request, HttpServletResponse response, HttpSession session)
             throws Exception{
 
         //get request
+        List<Node> result = new ArrayList<Node>();
         String nid =  request.getParameter("node_id");
-        String xml = "";
+
         Cookie[] cookies = request.getCookies();
         String username = CookieUtils.getValueByName(cookies, "username");
         String password = CookieUtils.getValueByName(cookies, "password");
+
 
         if(nid != null && username != null && password != null){
 
@@ -44,36 +48,13 @@ public class NodeController {
             List<Node> nodeList = nodeService.getFolderList(username, password, id);
             Integer preNodeId = nodeService.getPreNodeId(id);
 
-            //add in xml to return
-            xml += "<root>";
-            xml += "<node>";
-            xml += "<id>"; xml += preNodeId.toString() ;xml += "</id>";
-            xml += "<name>...</name>";
-            xml += "<type>back</type>";
-            xml += "<modify>-</modify>";
-            xml += "<info>上级目录</info>";
-            xml += "</node>";
-            for(Node node: nodeList){
-                xml += "<node>";
-                //id
-                xml += "<id>"; xml += node.getId().toString() ;xml += "</id>";
-                //name
-                xml += "<name>"; xml += node.getName(); xml += "</name>";
-                //type
-                xml += "<type>"; xml += node.getType(); xml += "</type>";
-                //modify
-                xml += "<modify>"; xml += node.getModifyTime().toString(); xml += "</modify>";
-                //info
-                xml += "<info>"; xml += node.getInfo(); xml += "</info>";
-                xml += "</node>";
-            }
-            //
-            xml += "</root>";
-            response.setContentType("text/html;charset=utf-8");
-            response.getWriter().println(xml);
+            result.add(new Node(preNodeId, "...", "back"));
+            result.addAll(nodeList);
+
         } else{
 
         }
+        return result;
     }
 
     @RequestMapping("/get_root.action")

@@ -3,8 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <!-- bootstrap -->
+    <script src="/framework/jquery/jquery-2.2.2.min.js"></script>
+    <link href="/framework/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="/framework/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link href="/framework/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+    <!-- bootstrap-->
+    <script src="/page/list/js/list.js"></script>
+    <link href="/page/list/css/list.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <div class="header">
+        <form class="search-from">
+            <span class="logo"><a href="/page/search/html/search.html">KBMS</a></span>
+            <span>
+                <input type="text" id="search-input"><span class="span-btn"><button onclick="postQuery2()" type="submit" id="search-submit">搜索一波</button></span>
+            </span>
+        </form>
+    </div>
+    <div class="header-container"></div>
+    <div class="content-container clearfix">
+        <div class="left-container" id="left-container">
+            <!-- example1 -->
+            <!--
+            <div class="container-item">
+                <div class="container-item-title">
+                    <span class="label label-default">最新</span>
+                    <span class="item-title-text">C语言学习大全</span>
+                </div>
 
+                <div class="container-item-content clearfix">
+                    <div class="container-item-img">
+                        <img src="/resource/icon/txt.jpg">
+                    </div>
+                    <div class="container-item-text">
+                        <p>广义的“文件”指公文书信或指有关政策、指公文书信或指有关政策、理论等理论等方面的文章。电脑上运行的如杀毒、游戏等软件或程序都..</p>
+                    </div>
+                </div>
+                <div class="container-item-foot clearfix">
+                    <div class="item-mark">
+                        <span class="label label-primary">计算机</span>
+                        <span class="label label-info">C语言</span>
+                        <span class="label label-default">知识</span>
+                    </div>
+                    <div class="item-opt">
+                        <span class="label label-danger">下载:18</span>
+                        <span class="label label-danger">收藏:22</span>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+        <div class="right-container"></div>
+    </div>
+
+    <div class="nav-foot"></div>
 </body>
 </html>

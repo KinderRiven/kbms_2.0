@@ -96,6 +96,8 @@ public class UserController {
         //添加cookie
         response.addCookie(userCookie);
         response.addCookie(pwdCookie);
+        //remove from session
+        session.removeAttribute("user");
 
         map.put("result", "yes");
         return map;

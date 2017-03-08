@@ -4,6 +4,7 @@ import org.apache.solr.client.solrj.beans.Field;
 
 import javax.print.Doc;
 import java.util.Date;
+import java.util.List;
 
 /*
  * Created by KinderRiven on 2017/2/28.
@@ -26,6 +27,34 @@ public class Document {
     private Integer uid;        //uid
     private Long upload;        //time_upload
     private Long modify;        //time_modify
+
+    private String hlName;      //highlight name
+    private String hlContent;   //highlight content
+    private List<String> tags;
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
+    public String getHlName() {
+        return hlName;
+    }
+
+    public void setHlName(String hlName) {
+        this.hlName = hlName;
+    }
+
+    public String getHlContent() {
+        return hlContent;
+    }
+
+    public void setHlContent(String hlContent) {
+        this.hlContent = hlContent;
+    }
 
     public String getContent() {
         return content;

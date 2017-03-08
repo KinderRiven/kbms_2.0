@@ -1,0 +1,10 @@
+http://www.ibm.com/developerworks/cn/java/j-solr1/index.html
+http://lucene.apache.org/solr/5_4_1/solr-solrj/index.html
+http://wiki.apache.org/solr/Solrj?highlight=%28%28Solrj%29%29
+http://www.itdadao.com/article/296074/
+http://blog.csdn.net/a925907195/article/details/39582187
+http://blog.csdn.net/qq_19244423/article/details/48153155
+http://www.cnblogs.com/zhoujg/archive/2015/12/17/5053789.html
+http://www.solrcn.com/
+http://www.cnblogs.com/guozk/p/3498844.html
+¹Ù·½ÎÄµµ£ºhttps://cwiki.apache.org/confluence/display/solr/Apache+Solr+Reference+Guide

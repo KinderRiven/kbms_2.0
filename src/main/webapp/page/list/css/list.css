@@ -1,0 +1,107 @@
+body{
+    font-family: "Microsoft YaHei","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif;
+}
+.header{
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;;
+}
+
+#search-input{
+    width: 450px;
+    height: 35px;
+    padding: 5px;
+    font-size: 20px;
+    margin-right: 0;
+    vertical-align: middle;
+    border: 2px solid;
+    vertical-align: middle;
+}
+
+.span-btn{  margin-left: 0;  }
+
+#search-submit{
+    height: 35px;
+    padding: 0 20px;
+    font-size: 18px;
+    vertical-align: middle;
+    background-color: black;
+    border: 0 solid;
+    color: white;
+}
+
+.logo a{
+    font-size: 25px;
+    vertical-align: middle;
+    margin-right: 15px;
+    font-weight: 600;
+    color: black;
+}
+
+.logo a:hover{  color: grey;  }
+.content-container{}
+.left-container{
+
+    margin-top: 20px;
+    float: left;
+    width: 750px;
+    margin-left: 100px;
+    border-right: 1px solid #f0f0f0;
+
+}
+
+.right-container{  float: right;  width: 750px;  }
+
+/* item */
+
+.container-item{
+    width: 600px;
+    margin-top: 30px;
+}
+
+.container-item .label{
+    margin-right: 5px;
+}
+.container-item-title{
+    margin-bottom: 10px;
+}
+.item-title-text{
+    font-size: 18px;
+    font-weight: 500;
+}
+.container-item-title span{
+    vertical-align: middle;
+}
+
+.container-item-img img{
+    width: 50px;
+}
+
+.container-item-img{
+    float: left;
+    margin-right: 15px;
+    padding-top: 5px;
+}
+.container-item-text{
+    float: left;
+    width: 500px;
+}
+.container-item-text p{
+    font-size: 15px;
+}
+.container-item-foot{
+    margin-top: 10px;
+}
+.item-mark{
+    float: left;
+}
+.item-opt{
+    float: right;
+}
+
+
+.nav-foot{
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
