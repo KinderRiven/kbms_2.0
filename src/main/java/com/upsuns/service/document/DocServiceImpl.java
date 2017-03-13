@@ -1,6 +1,7 @@
 package com.upsuns.service.document;
 
 import com.upsuns.function.SolrUtils;
+import com.upsuns.function.TagUtils;
 import com.upsuns.function.TextUtils;
 import com.upsuns.mapper.document.DocMapper;
 import com.upsuns.mapper.node.NodeMapper;
@@ -9,6 +10,7 @@ import com.upsuns.mapper.user.UserMapper;
 import com.upsuns.po.document.Document;
 import com.upsuns.po.node.Node;
 import com.upsuns.po.tag.DocTag;
+import com.upsuns.po.tag.Tag;
 import com.upsuns.po.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,11 +38,11 @@ public class DocServiceImpl implements DocService{
     private DocTagMapper docTagMapper;
 
     //upload node
-    public boolean uploadFile(MultipartFile file, String savePath,
+    public Document uploadFile(MultipartFile file, String savePath,
                            String username, String password, Integer curId) throws Exception{
         //get user
         User user = userMapper.selectByUserName(username);
-        if(user == null) return false;
+        if(user == null) return null;
 
         //save node
         Document document = new Document(file.getOriginalFilename(), savePath);
@@ -76,27 +78,25 @@ public class DocServiceImpl implements DocService{
         node.setName(document.getName());
         nodeMapper.insertNode(node);
 
-        //add tags
-        DocTag docTag = new DocTag(document.getId(), "最新");
-        docTagMapper.insertDocTag(docTag);
-        return true;
+        return document;
     }
 
     public List<Document> solrQueryDocument(String query) throws Exception{
 
         List<Document> docs = SolrUtils.queryDocument(query);
 
-        for(Document doc : docs){
+        for(Document doc : docs) {
 
             Integer id = doc.getId();
             List<String> tags = new ArrayList<String>();
             List<DocTag> docTags = docTagMapper.selectTagsByDocId(id);
 
-            for(DocTag docTag : docTags){
+            for (DocTag docTag : docTags) {
                 tags.add(docTag.getTagName());
             }
             doc.setTags(tags);
         }
+
         return docs;
     }
 }

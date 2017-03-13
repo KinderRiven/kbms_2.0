@@ -6,6 +6,7 @@ import com.upsuns.po.document.Document;
 import com.upsuns.po.node.Node;
 import com.upsuns.po.user.User;
 import com.upsuns.service.document.DocService;
+import com.upsuns.service.tag.TagService;
 import org.apache.zookeeper.server.SessionTracker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,9 @@ public class DocumentController {
 
     @Autowired
     private DocService docService;
+
+    @Autowired
+    private TagService tagService;
 
     @RequestMapping("/file_upload.action")
     @ResponseBody
@@ -56,11 +60,20 @@ public class DocumentController {
 
         //service
         if(username != null) {
-            boolean ret = docService.uploadFile(file, savePath, username, password , Integer.parseInt(curId));
-            if(ret)
+
+            Document document = docService.uploadFile
+                    (file, savePath, username, password , Integer.parseInt(curId));
+
+            tagService.parseTags(document);
+            boolean ret = true;
+
+            if(ret) {
                 result.put("result", "yes");
-            else
+            }
+            else {
                 result.put("result", "no");
+            }
+
         } else
             result.put("result", "no");
 

@@ -7,4 +7,5 @@
     <bean  class="com.upsuns.service.user.UserServiceImpl"></bean>
     <bean  class="com.upsuns.service.document.DocServiceImpl"></bean>
     <bean  class="com.upsuns.service.node.NodeServiceImpl"></bean>
+    <bean  class="com.upsuns.service.tag.TagServiceImpl"></bean>
 </beans>

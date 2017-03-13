@@ -13,7 +13,7 @@ import java.util.List;
 public interface DocService {
 
     //upload node
-    public boolean uploadFile(MultipartFile file, String savePath,
+    public Document uploadFile(MultipartFile file, String savePath,
                            String username, String password, Integer curId) throws Exception;
 
 
