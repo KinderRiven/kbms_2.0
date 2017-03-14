@@ -47,8 +47,8 @@ public class SolrUtils {
             stringBuilder.append(param);
         }
         solrQuery.set("q", stringBuilder.toString());
-        //只返回ID和名称
-        solrQuery.set("fl", "name id");
+        //只返回ID、名称、内容
+        solrQuery.set("fl", "name id content");
 
         //highlight
         solrQuery.setHighlight(true);
@@ -63,7 +63,7 @@ public class SolrUtils {
         Map<String, Map<String, List<String>>> map = response.getHighlighting();
         List<Document> docs = response.getBeans(Document.class);
 
-        for(Document doc : docs){
+        for(Document doc : docs) {
             String id = doc.getId().toString();
             Map<String, List<String>> mmap = map.get(id);
 
@@ -72,14 +72,22 @@ public class SolrUtils {
             String hlName = "";
             String hlContent = "";
 
-            if(hlNameList != null){
-                for(String name : hlNameList){hlName += name;}
+            if (hlNameList != null) {
+                for (String name : hlNameList) {
+                    hlName += name;
+                }
             }
-            if(hlContentList != null){
-                for(String content : hlContentList){hlContent += content;}
+            if (hlContentList != null) {
+                for (String content : hlContentList) {
+                    hlContent += content;
+                }
             }
             doc.setHlName(hlName);
             doc.setHlContent(hlContent);
+
+            String content = doc.getContent();
+            if(content != null)
+                doc.setContent(content.substring(0, Math.min(80, content.length())));
         }
         return docs;
     }

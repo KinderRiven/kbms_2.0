@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>用户空间-文件上传</title>
+
+    <!--bootstrap + jquery-->
+    <script src="/framework/jquery/jquery-2.2.2.min.js"></script>
+    <link href="/framework/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="/framework/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link href="/framework/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+    <!-- plugin -->
+    <script src="/plugin/bootstrap-fileinput-master/js/fileinput.min.js"></script>
+    <script src="/plugin/bootstrap-fileinput-master/js/fileinput_locale_zh.js"></script>
+    <link href="/plugin/bootstrap-fileinput-master/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+
+    <!-- my js -->
+    <script src="/page/space/user/js/user.js"></script>
+
+    <!-- my css -->
+    <link href="/page/space/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/page/space/user/css/user.css" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+    <nav class="header navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/page/search/html/search.html">KBMS</a>
+            </div>
+            <ul class="navbar-brand navbar-right">
+
+                <li class="dropdown nav-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span><img src="/resource/sao/icon/skills_hover.png"></span>
+                        <span>KinderRiven</span>
+                    </a>
+
+                    <ul class="dropdown-menu user-menu">
+                        <li>
+                            <a href="#">
+                                <span><img src="/resource/sao/icon/option_normal.png"></span>
+                                <span>个人资料</span>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                            <span><img src="/resource/sao/icon/option_normal.png"></span>
+                            <span>退出</span>
+                        </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main-container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="/page/space/upload/html/upload.html"><img src="/resource/sao/icon/folder_normal.png">文件列表</a></li>
+                <li><a href="#"><img src="/resource/sao/icon/appearance_normal.png">用户日志</a></li>
+                <li><a href="#"><img src="/resource/sao/icon/skills_normal.png">朋友圈</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="user-form clearfix">
+                <div class="form-left">
+                    <div class="input-group">
+                        <span class="input-group-addon">用户编号</span>
+                        <input type="text" disabled="disabled" class="form-control" value="">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">用户昵称</span>
+                        <input type="text"  class="form-control" value="">
+                    </div>
+
+                    <div class="textarea-frame">
+                        <label>签名</label>
+                        <textarea class="form-control" rows="4"></textarea>
+                    </div>
+
+                </div>
+                <div class="form-middle">
+                    <div class="user-img">
+                        <img src="/resource/image/user.jpg">
+                    </div>
+                    <div class="user-name">
+                        <a>KinderRiven</a>
+                    </div>
+                    <div class="user-follow clearfix">
+                        <div class="user-follower user-follow-font">
+                            <a>关注</a>
+                            <a>18</a>
+                        </div>
+                        <div class="user-following user-follow-font">
+                            <a>粉丝</a>
+                            <a>21</a>
+                        </div>
+                        <div class="user-upload user-follow-font">
+                            <a>上传</a>
+                            <a>35</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-right">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">电子邮件</span>
+                        <input type="text"  class="form-control" value="">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">个人博客</span>
+                        <input type="text"  class="form-control" value="">
+                    </div>
+
+                    <div class="textarea-frame">
+                        <label>个人标签</label>
+                        <textarea class="form-control" rows="4"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

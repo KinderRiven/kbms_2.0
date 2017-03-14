@@ -1,0 +1,86 @@
+
+
+.user-form{
+
+    width: 80%;
+    padding: 40px;
+    margin: 0 auto;
+
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.form-left{
+    width: 35%;
+    float: left;
+}
+
+.user-img{
+    text-align: center;
+}
+
+.form-middle{
+    width: 30%;
+    float: left;
+}
+
+.form-right{
+    width: 35%;
+    float: left;
+}
+
+.form-middle img{
+    width: 180px;
+    height: 180px;
+    padding: 3px;
+    background: #fff;
+    border: 1px solid #d5d5d5;
+    border-radius: 50%;
+}
+
+.input-group{
+    margin-top: 30px;
+}
+
+.user-name{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+.user-name a{
+    color: black;
+}
+
+.textarea-frame{
+    margin-top: 20px;
+}
+
+.user-follow{
+
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+.user-follow-font a{
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+    display: block;
+}
+.user-follower{
+    float: left;
+    width: 33%;
+    text-align: center;
+    border-right: 1px solid;
+}
+.user-following{
+    float: left;
+    width: 33%;
+    text-align: center;
+    border-right: 1px solid;
+}
+.user-upload{
+    float: left;
+    width: 33%;
+}

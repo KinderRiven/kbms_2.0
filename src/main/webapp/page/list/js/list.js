@@ -49,7 +49,10 @@ function updateLeftContainer(data){
         item += '<div class="container-item-content clearfix">';
         item += ('<div class="container-item-img">' + '<img src="/resource/icon/txt.jpg">' + '</div>');
         item += '<div class="container-item-text">';
-        item += ('<p>' + data[i].hlContent + '</p>');
+        if(data[i].hlContent.length > 0)
+            item += ('<p>' + data[i].hlContent + '</p>');
+        else
+            item += ('<p>' + data[i].content + '</p>');
         item += '</div></div>';
         //span
         item += '<div class="container-item-foot clearfix">';

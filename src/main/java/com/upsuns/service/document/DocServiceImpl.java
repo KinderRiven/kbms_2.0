@@ -55,7 +55,7 @@ public class DocServiceImpl implements DocService{
         file.transferTo(saveFile);
 
         //read node
-        String content = TextUtils.getFileText(document.getPath());
+        String content = TextUtils.getFileContent(document.getPath());
         document.setContent(content);
 
         //add document info

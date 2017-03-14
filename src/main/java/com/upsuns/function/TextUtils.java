@@ -2,6 +2,7 @@ package com.upsuns.function;
 
 /* reated by KinderRiven on 2017/3/1. */
 
+import org.apache.tika.Tika;
 import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.AutoDetectParser;
@@ -10,6 +11,7 @@ import org.apache.tika.parser.Parser;
 import org.apache.tika.sax.BodyContentHandler;
 import org.xml.sax.SAXException;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,6 +41,14 @@ public class TextUtils {
             return suffix;
         else
             return null;
+    }
+
+    //
+    public static String getFileContent(String path) throws Exception{
+
+        Tika tika = new Tika();
+        String text = tika.parseToString(new File(path));
+        return text;
     }
 
     //get node text
