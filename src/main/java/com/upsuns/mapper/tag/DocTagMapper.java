@@ -12,4 +12,6 @@ public interface DocTagMapper {
     public void insertDocTag(DocTag docTag) throws Exception;
 
     public List<DocTag> selectTagsByDocId(Integer docId) throws Exception;
+
+    public List<String> selectTagNameByDocId(Integer docId) throws Exception;
 }

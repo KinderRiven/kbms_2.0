@@ -9,11 +9,13 @@ abstract class AbstractNode implements Node {
     private boolean exists;
     private Node fail;
 
+
     public AbstractNode(Node parent, char value) {
         this.parent = parent;
         this.value = value;
         this.exists = false;
         this.fail = null;
+
     }
 
     public AbstractNode() {
@@ -62,7 +64,6 @@ abstract class AbstractNode implements Node {
     public char value() {
         return value;
     }
-
 
     @Override
     public boolean exists() {

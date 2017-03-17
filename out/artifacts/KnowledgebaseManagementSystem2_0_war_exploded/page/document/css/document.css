@@ -1,0 +1,86 @@
+body{
+
+}
+
+/* header */
+.header{  background: black;  min-height: 40px;  border-bottom: 5px solid; }
+.navbar-brand{
+    margin: 0;
+    color: white;
+}
+.navbar-brand:hover{
+    color: white;
+    background: rgba(255,255,255,0.05);
+}
+
+.navbar>.container{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0;
+    width: 100%;
+}
+
+.navbar-header a{
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+}
+li{ list-style-type: none;  }
+.nav-user>a{  color: white; }
+a:hover{  text-decoration: none;  }
+.container>ul{  border-right: 1px solid rgba(0,0,0,0.2);  }
+.user-menu{  font-size: 16px;  }
+
+.container-content{
+    margin-top: 65px;
+}
+
+.container-left{
+    width: 25%;
+    float: left;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-right: 50px;
+}
+
+.sim-file{
+    width: 90%;
+    padding-right: 50px;
+    border-right: 1px solid #f0f0f0;
+}
+
+.container-middle{
+    width: 45%;
+    float: left;
+    padding-left: 50px;
+}
+.file-info{
+    margin-bottom: 50px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.file-introduce{
+    margin-top: 20px;
+    padding: 15px;
+    margin-bottom: 30px;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+}
+.file-table{
+    font-size: 17px;
+}
+
+.container-right{
+    float: right;
+    width: 30%;
+}
+
+.file-introduce h1{
+    color: deepskyblue;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.file-introduce p{
+    font-size: 17px;
+    line-height: 25px;
+}

@@ -87,7 +87,7 @@ public class SolrUtils {
 
             String content = doc.getContent();
             if(content != null)
-                doc.setContent(content.substring(0, Math.min(80, content.length())));
+                doc.setContent(content.substring(0, Math.min(150, content.length())));
         }
         return docs;
     }

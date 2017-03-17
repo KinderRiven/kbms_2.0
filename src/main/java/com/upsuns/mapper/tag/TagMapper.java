@@ -10,4 +10,7 @@ import java.util.List;
 public interface TagMapper {
 
     public List<String> selectAllTagsName() throws Exception;
+
+    public List<Tag> selectAllTags() throws Exception;
+
 }

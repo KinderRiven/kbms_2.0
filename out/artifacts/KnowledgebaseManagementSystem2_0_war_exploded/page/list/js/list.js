@@ -3,6 +3,15 @@
  */
 
 var s_result;
+var span_type = [
+    '<span class="label label-default">',
+    '<span class="label label-primary">',
+    '<span class="label label-success">',
+    '<span class="label label-info">',
+    '<span class="label label-warning">',
+    '<span class="label label-danger">'
+];
+
 function postQuery2(){
 
     var search_value = document.getElementById('search-input').value;
@@ -32,6 +41,7 @@ function updateLeftContainer(data){
     leftContainer.innerHTML = '';
 
     var html = '', item;
+    var link = '/page/document/html/document.html?'
     for(var i = 0; i < data.length; i++){
 
         item  = '';
@@ -40,11 +50,14 @@ function updateLeftContainer(data){
         //label
         item += '<span class="label label-default">最新</span>';
 
+        var nlink = link + 'id=' + data[i].id;
         //name
         if(data[i].hlName.length != 0)
-            item += ('<span class="item-title-text">' + data[i].hlName + '</span>');
+            item += ('<span class="item-title-text"><a href="' + nlink +
+            '">' + data[i].hlName + '</a></span>');
         else
-            item += ('<span class="item-title-text">' + data[i].name + '</span>');
+            item += ('<span class="item-title-text"><a href="' + nlink +
+            '">' + data[i].name + '</a></span>');
         item += '</div>';
         item += '<div class="container-item-content clearfix">';
         item += ('<div class="container-item-img">' + '<img src="/resource/icon/txt.jpg">' + '</div>');
@@ -59,13 +72,13 @@ function updateLeftContainer(data){
         item += '<div class="item-mark">';
         var tags = data[i].tags;
         for(var j = 0; j < tags.length; j++){
-            item += ('<span class="label label-primary">' + tags[j] +'</span>');
+            item += (span_type[j % 6] + tags[j] +'</span>');
         }
         item += '</div>';
 
         item += '<div class="item-opt">';
-        item += '<span class="label label-danger">下载:18</span>';
-        item += '<span class="label label-danger">收藏:22</span>';
+        item += '<span class="label label-danger">下载:' + '0' + '</span>';
+        item += '<span class="label label-danger">收藏:' + '0' + '</span>';
         item += '</div>';
         item += '</div>';
 

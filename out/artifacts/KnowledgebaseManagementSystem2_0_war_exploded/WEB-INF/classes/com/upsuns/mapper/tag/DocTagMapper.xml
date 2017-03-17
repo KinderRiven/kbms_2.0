@@ -4,17 +4,23 @@
 <mapper namespace="com.upsuns.mapper.tag.DocTagMapper">
 
     <resultMap id="BaseResultMap" type="com.upsuns.po.tag.DocTag">
+        <result column="id" jdbcType="INTEGER" property="id"/>
         <result column="doc_id" jdbcType="INTEGER" property="docId"/>
+        <result column="tag_id" jdbcType="INTEGER" property="tagId"/>
         <result column="tag_name" jdbcType="VARCHAR" property="tagName"/>
     </resultMap>
 
     <!--获得自增的id值-->
     <insert id="insertDocTag">
-        INSERT INTO doc_tag (doc_id, tag_name) VALUES (#{docId}, #{tagName});
+        INSERT INTO doc_tag (doc_id, tag_name, tag_id) VALUES (#{docId}, #{tagName}, #{tagId});
     </insert>
 
     <select id="selectTagsByDocId" resultMap="BaseResultMap">
         SELECT * FROM doc_tag WHERE doc_id = #{0};
+    </select>
+
+    <select id="selectTagNameByDocId" resultType="String">
+        SELECT tag_name FROM doc_tag WHERE doc_id = #{0};
     </select>
 
 </mapper>

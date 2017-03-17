@@ -1,12 +1,8 @@
 package com.upsuns.controller.test;
 
-import com.upsuns.function.SolrUtils;
-import com.upsuns.po.user.User;
-import com.upsuns.service.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,4 +14,10 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class TestController {
 
+    @RequestMapping("/test.action")
+    @ResponseBody
+    public void runTest(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+            throws Exception{
+
+    }
 }

@@ -4,13 +4,17 @@
 <mapper namespace="com.upsuns.mapper.tag.TagMapper">
 
     <resultMap id="BaseResultMap" type="com.upsuns.po.tag.Tag">
-        <result column="tag_id" jdbcType="INTEGER" property="id"/>
-        <result column="tag_name" jdbcType="VARCHAR" property="name"/>
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="weight" jdbcType="INTEGER" property="weight"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
     </resultMap>
 
-
     <select id="selectAllTagsName" resultType="String">
-        SELECT tag_name FROM tag;
+        SELECT name FROM tag;
+    </select>
+
+    <select id="selectAllTags" resultMap="BaseResultMap">
+        SELECT * FROM tag;
     </select>
 
 </mapper>

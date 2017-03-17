@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-/**
+/*
  * Created by KinderRiven on 2017/2/28.
  */
 public interface DocService {
@@ -18,4 +18,6 @@ public interface DocService {
 
 
     public List<Document> solrQueryDocument(String query) throws Exception;
+
+    public Document getDocument(Integer id) throws Exception;
 }

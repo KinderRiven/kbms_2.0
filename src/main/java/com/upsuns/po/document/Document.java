@@ -19,7 +19,7 @@ public class Document {
     private String  content;    //doc_content
 
     private String  path;       //doc_path
-    private Integer size;       //doc_size
+    private Long    size;       //doc_size
     private String  type;       //doc_type
     private String  summary;    //doc_summary
     private Integer collect;    //num_collect
@@ -31,6 +31,16 @@ public class Document {
     private String hlName;      //highlight name
     private String hlContent;   //highlight content
     private List<String> tags;
+
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public List<String> getTags() {
         return tags;
@@ -116,11 +126,11 @@ public class Document {
         this.path = path;
     }
 
-    public Integer getSize() {
+    public Long getSize() {
         return size;
     }
 
-    public void setSize(Integer size) {
+    public void setSize(Long size) {
         this.size = size;
     }
 

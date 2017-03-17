@@ -6,12 +6,14 @@ import com.upsuns.function.TextUtils;
 import com.upsuns.mapper.document.DocMapper;
 import com.upsuns.mapper.node.NodeMapper;
 import com.upsuns.mapper.tag.DocTagMapper;
+import com.upsuns.mapper.tag.TagMapper;
 import com.upsuns.mapper.user.UserMapper;
 import com.upsuns.po.document.Document;
 import com.upsuns.po.node.Node;
 import com.upsuns.po.tag.DocTag;
 import com.upsuns.po.tag.Tag;
 import com.upsuns.po.user.User;
+import com.upsuns.queue.ServerQueueManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -37,6 +39,7 @@ public class DocServiceImpl implements DocService{
     @Autowired
     private DocTagMapper docTagMapper;
 
+
     //upload node
     public Document uploadFile(MultipartFile file, String savePath,
                            String username, String password, Integer curId) throws Exception{
@@ -57,6 +60,13 @@ public class DocServiceImpl implements DocService{
         //read node
         String content = TextUtils.getFileContent(document.getPath());
         document.setContent(content);
+
+        //summary
+        document.setSummary(content.substring(0, Math.min(content.length(), 150)));
+
+        //size
+        document.setSize(file.getSize());
+        document.setUid(user.getId());
 
         //add document info
         docMapper.insertDoc(document);
@@ -99,4 +109,15 @@ public class DocServiceImpl implements DocService{
 
         return docs;
     }
+
+    public Document getDocument(Integer id) throws Exception{
+
+        Document doc =  docMapper.selectDocByDocId(id);
+        User user = userMapper.selectByUserId(doc.getUid());
+        doc.setUsername(user.getUsername());
+        doc.setTags(docTagMapper.selectTagNameByDocId(doc.getId()));
+        return doc;
+    }
+
+
 }

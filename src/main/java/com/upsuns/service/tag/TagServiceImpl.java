@@ -7,6 +7,7 @@ import com.upsuns.mapper.tag.TagMapper;
 import com.upsuns.po.document.Document;
 import com.upsuns.po.tag.DocTag;
 import com.upsuns.po.tag.Tag;
+import com.upsuns.queue.ServerQueueManager;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
@@ -24,21 +25,5 @@ public class TagServiceImpl implements TagService{
     @Autowired
     private DocTagMapper docTagMapper;
 
-    public void parseTags(Document document) throws Exception{
-
-        List<String> names = tagMapper.selectAllTagsName();
-
-        //AC自动机
-        WordTable table = WordTable.compile(names);
-        List<MatchInfo> info = table.search(document.getContent());
-        Set<String> set = new HashSet<String>();
-
-        for(MatchInfo each : info){
-            set.add(each.getWord());
-        }
-        for(String word : set){
-            DocTag docTag = new DocTag(document.getId(), word);
-            docTagMapper.insertDocTag(docTag);
-        }
-    }
+    public void parseTags(Document document) throws Exception{}
 }

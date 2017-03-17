@@ -7,7 +7,7 @@
         <id column="doc_id" jdbcType="INTEGER" property="id"/>
         <result column="doc_name" jdbcType="VARCHAR" property="name"/>
         <result column="doc_path" jdbcType="VARCHAR" property="path"/>
-        <result column="doc_size" jdbcType="INTEGER" property="size"/>
+        <result column="doc_size" jdbcType="BIGINT" property="size"/>
         <result column="doc_type" jdbcType="VARCHAR" property="type"/>
         <result column="doc_summary" jdbcType="LONGVARCHAR" property="summary"/>
         <result column="num_collect" jdbcType="INTEGER" property="collect"/>

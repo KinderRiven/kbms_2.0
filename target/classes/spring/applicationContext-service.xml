@@ -4,8 +4,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean  class="com.upsuns.service.user.UserServiceImpl"></bean>
-    <bean  class="com.upsuns.service.document.DocServiceImpl"></bean>
-    <bean  class="com.upsuns.service.node.NodeServiceImpl"></bean>
-    <bean  class="com.upsuns.service.tag.TagServiceImpl"></bean>
+    <bean class="com.upsuns.service.user.UserServiceImpl"></bean>
+    <bean class="com.upsuns.service.document.DocServiceImpl"></bean>
+    <bean class="com.upsuns.service.node.NodeServiceImpl"></bean>
+    <bean class="com.upsuns.service.tag.TagServiceImpl"></bean>
+
+    <!-- 队列控制-->
+    <bean class="com.upsuns.queue.TagServerQueue" id="tagServerQueue">
+    </bean>
+
+    <bean class="com.upsuns.queue.ServerQueueManager">
+        <property name="tagServerQueue" ref="tagServerQueue"></property>
+    </bean>
 </beans>

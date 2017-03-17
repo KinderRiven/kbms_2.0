@@ -5,6 +5,7 @@ import com.upsuns.function.SolrUtils;
 import com.upsuns.po.document.Document;
 import com.upsuns.po.node.Node;
 import com.upsuns.po.user.User;
+import com.upsuns.queue.ServerQueueManager;
 import com.upsuns.service.document.DocService;
 import com.upsuns.service.tag.TagService;
 import org.apache.zookeeper.server.SessionTracker;
@@ -35,6 +36,14 @@ public class DocumentController {
     @Autowired
     private TagService tagService;
 
+    @Autowired
+    private ServerQueueManager serverQueueManager;
+
+    @RequestMapping("/run_server.action")
+    @ResponseBody void runServer(HttpServletRequest request, HttpServletResponse response, HttpSession session){
+        serverQueueManager.start();
+    }
+
     @RequestMapping("/file_upload.action")
     @ResponseBody
     public Map<String, String> fileUpload(
@@ -64,15 +73,13 @@ public class DocumentController {
             Document document = docService.uploadFile
                     (file, savePath, username, password , Integer.parseInt(curId));
 
-            tagService.parseTags(document);
+            //tagService.parseTags(document);
+            serverQueueManager.addTagServer(document);
+
             boolean ret = true;
 
-            if(ret) {
-                result.put("result", "yes");
-            }
-            else {
-                result.put("result", "no");
-            }
+            if(ret) {result.put("result", "yes");}
+            else { result.put("result", "no");}
 
         } else
             result.put("result", "no");
@@ -121,5 +128,21 @@ public class DocumentController {
             }
         }
         return docs;
+    }
+
+    @RequestMapping("doc_get.action")
+    @ResponseBody
+    public Document documentGet
+            (HttpServletRequest request, HttpServletResponse response, HttpSession session)
+            throws Exception{
+
+        String sid = request.getParameter("doc_id");
+
+        if(sid != null) {
+            Document doc = docService.getDocument(Integer.parseInt(sid));
+            return doc;
+        } else{
+            return null;
+        }
     }
 }
