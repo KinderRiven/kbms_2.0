@@ -63,7 +63,6 @@ public class UserController {
         User user = userService.login(username, password);
 
         if(user != null) {
-
             session.setAttribute("user", user);
             //创建cookie
             Cookie usrCookie = new Cookie("username", username);

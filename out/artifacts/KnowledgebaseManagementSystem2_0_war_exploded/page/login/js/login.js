@@ -3,7 +3,7 @@ function postLoginForm(){
 
     var username = document.getElementById('user_name').value;
     var password = document.getElementById('user_password').value;
-    console.log(username + ' ' + password)
+    console.log(username + ' ' + password);
 
     $.ajax({
         url: '/user_login.action',
@@ -16,9 +16,14 @@ function postLoginForm(){
         },
         success: function (data) {
             //登陆成功重定向
-            window.location.href="/page/space/upload/html/upload.html";
-            console.log('登录成功');
-            console.log(document.cookie);
+            console.log(data['result']);
+            if(data['result'] == 'yes') {
+                window.location.href = "/page/space/upload/html/upload.html";
+                console.log('登录成功');
+                console.log(document.cookie);
+            } else{
+                alert('账号密码错误!');
+            }
         },
         error: function(data) {
             console.log('登录失败');

@@ -72,7 +72,6 @@ public class DocumentController {
 
             Document document = docService.uploadFile
                     (file, savePath, username, password , Integer.parseInt(curId));
-
             //tagService.parseTags(document);
             serverQueueManager.addTagServer(document);
 

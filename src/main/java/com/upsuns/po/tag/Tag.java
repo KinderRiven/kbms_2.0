@@ -7,13 +7,13 @@ public class Tag {
 
     private String name;
     private Integer id;
-    private String weight;
+    private Integer weight;
 
-    public String getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 

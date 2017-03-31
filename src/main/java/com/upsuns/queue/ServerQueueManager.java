@@ -7,6 +7,7 @@ package com.upsuns.queue;
 import com.upsuns.po.document.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.PostConstruct;
 import javax.print.Doc;
 
 public class ServerQueueManager {
@@ -16,14 +17,24 @@ public class ServerQueueManager {
 
     public ServerQueueManager(){};
 
+    private boolean isRunning = false;
+
     public void addTagServer(Document document){
         tagServerQueue.addServer(document);
     }
 
+    @PostConstruct
     public void start(){
 
-        tagServerQueue.start();
-
+        if(isRunning == false) {
+            System.out.println("启动队列");
+            tagServerQueue.start();
+            isRunning = true;
+        } else{
+            System.out.println("关闭队列");
+            tagServerQueue.setRunning(false);
+            isRunning = false;
+        }
     }
 
     public TagServerQueue getTagServerQueue() {
@@ -33,5 +44,4 @@ public class ServerQueueManager {
     public void setTagServerQueue(TagServerQueue tagServerQueue) {
         this.tagServerQueue = tagServerQueue;
     }
-
 }

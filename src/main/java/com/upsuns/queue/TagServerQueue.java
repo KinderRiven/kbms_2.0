@@ -34,6 +34,7 @@ public class TagServerQueue extends Thread{
     //标签存储映射
     private List<String> tagNames;
     private Map<String, Integer> tagMap;
+    private Map<String, Integer> weightMap;
 
     private boolean isRunning;
 
@@ -42,15 +43,25 @@ public class TagServerQueue extends Thread{
         isRunning = true;
     }
 
+    public boolean isRunning() {
+        return isRunning;
+    }
+
+    public void setRunning(boolean running) {
+        isRunning = running;
+    }
+
     public void init() throws Exception{
 
         List<Tag> tags = tagMapper.selectAllTags();
         tagNames = new ArrayList<String>();
         tagMap = new HashMap<String, Integer>();
+        weightMap = new HashMap<String, Integer>();
 
         for(Tag tag : tags){
             tagNames.add(tag.getName());
             tagMap.put(tag.getName(), tag.getId());
+            weightMap.put(tag.getName(), tag.getWeight());
         }
     }
 
@@ -58,15 +69,32 @@ public class TagServerQueue extends Thread{
 
         WordTable table = WordTable.compile(tagNames);
         List<MatchInfo> info = table.search(document.getContent());
-        Set<String> set = new HashSet<String>();
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        System.out.println(info);
 
         for(MatchInfo each : info){
-            set.add(each.getWord());
+
+            String key = each.getWord();
+            Integer value = map.get(key);
+
+            if(value == null) {map.put(key, 1);}
+            else{
+                value = value + 1;
+                map.put(key, value);
+            }
         }
 
-        for(String word : set){
-            DocTag docTag = new DocTag(document.getId(), word, tagMap.get(word));
-            docTagMapper.insertDocTag(docTag);
+        for(String word : map.keySet()){
+
+            Integer value = map.get(word);
+            Integer weight = weightMap.get(word);
+
+            //出现次数 * 权值 >= 5
+            if(value * weight >= 5) {
+                System.out.println(word + ":" + value.toString() + "-" + weight.toString());
+                DocTag docTag = new DocTag(document.getId(), word, tagMap.get(word));
+                docTagMapper.insertDocTag(docTag);
+            }
         }
     }
 
@@ -76,13 +104,8 @@ public class TagServerQueue extends Thread{
             init();
             System.out.println("标签处理队列开始");
             while(isRunning){
-
                 Document document = queue.take();
-                //处理
-                //System.out.println("开始处理");
                 parseTags(document);
-                //System.out.println("处理完成");
-
             }
             System.out.println("标签处理队列完成");
         } catch (Exception e){}

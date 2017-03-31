@@ -25,7 +25,6 @@ public final class MatchInfo {
         this.word = word;
     }
 
-
     public int getIndex() {
         return index;
     }

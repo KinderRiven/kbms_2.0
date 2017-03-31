@@ -18,11 +18,11 @@
     </resultMap>
 
     <select id="selectByUserId" parameterType="int" resultMap="BaseResultMap">
-        SELECT * FROM user WHERE user_id=#{id};
+        SELECT * FROM user WHERE user_id=#{0};
     </select>
 
     <select id="selectByUserName" parameterType="String" resultMap="BaseResultMap">
-        SELECT * FROM user WHERE user_name=#{username};
+        SELECT * FROM user WHERE user_name =#{0};
     </select>
 
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="id" parameterType="User">
