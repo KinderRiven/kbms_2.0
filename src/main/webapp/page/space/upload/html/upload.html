@@ -20,6 +20,7 @@
     <script src="/page/space/upload/js/global_var.js"></script>
     <script src="/page/space/upload/js/file-tree.js"></script>
     <script src="/page/space/upload/js/upload-frame.js"></script>
+    <script src="/page/space/upload/js/set.js"></script>
     <link href="/page/css/style.css" rel="stylesheet" type="text/css">
 
     <!-- my css -->
@@ -63,7 +64,8 @@
             <ul>
                 <li><a href="#"><img src="/resource/sao/icon/folder_normal.png">文件列表</a></li>
                 <li><a href="/page/space/user/html/user.html"><img src="/resource/sao/icon/appearance_normal.png">用户日志</a></li>
-                <li><a href="#"><img src="/resource/sao/icon/skills_normal.png">朋友圈</a></li>
+                <li><a href="/page/space/home/html/user_home.html"><img src="/resource/sao/icon/skills_normal.png">个人主页</a></li>
+                <li><a href="#"><img src="/resource/sao/icon/guide_normal.png">朋友圈</a></li>
             </ul>
         </div>
         <div class="content">
@@ -122,6 +124,32 @@
                             </div>
                         </div>
                         -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 创建书单弹窗 -->
+        <div class="modal fade" id="add_book">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title">添加到书单</div>
+                    </div>
+                    <div class="modal-body clearfix" id="modal-set">
+                        <!--<div class="modal-set-item clearfix">
+                            <div class="modal-set-img">
+                                <img src="/resource/image/set/1.jpg">
+                            </div>
+                            <div class="modal-set-info">
+                                <div class="modal-set-name">算法导论</div>
+                                <div class="modal-set-description">
+                                    一本非常适合人们阅读的算法经典..
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
                     </div>
                 </div>
             </div>

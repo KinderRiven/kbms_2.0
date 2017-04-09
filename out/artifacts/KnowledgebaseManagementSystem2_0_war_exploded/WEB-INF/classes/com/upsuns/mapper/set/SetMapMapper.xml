@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.upsuns.mapper.set.SetMapMapper">
+
+    <resultMap id="BaseResultMap" type="com.upsuns.po.set.SetMap">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="set_id" jdbcType="INTEGER" property="setId"/>
+        <result column="node_id" jdbcType="INTEGER" property="nodeId"/>
+        <result column="time" jdbcType="BIGINT" property="time"/>
+        <result column="note" jdbcType="LONGVARCHAR" property="note"/>
+    </resultMap>
+
+    <insert id="insertSetMap"  useGeneratedKeys="true" keyProperty="id" parameterType="SetMap">
+        INSERT INTO set_map
+        (set_id, node_id, time, note)
+        VALUES
+        (#{setId}, #{nodeId}, #{time}, #{note});
+    </insert>
+
+    <select id="selectMapBySetId" resultMap="BaseResultMap">
+        SELECT * FROM set_map WHERE set_id = #{0};
+    </select>
+
+</mapper>

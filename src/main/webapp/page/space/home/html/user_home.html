@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--bootstrap + jquery-->
+    <script src="/framework/jquery/jquery-2.2.2.min.js"></script>
+    <link href="/framework/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="/framework/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link href="/framework/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+    <!-- plugin -->
+    <script src="/plugin/bootstrap-fileinput-master/js/fileinput.min.js"></script>
+    <script src="/plugin/bootstrap-fileinput-master/js/fileinput_locale_zh.js"></script>
+    <link href="/plugin/bootstrap-fileinput-master/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+
+    <!-- my js -->
+    <script src="/page/space/home/js/user_home.js"></script>
+
+    <!-- my css -->
+    <link href="/page/space/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/page/space/home/css/user_home.css" rel="stylesheet" type="text/css">
+    <link href="/page/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <nav class="header navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/page/search/html/search.html">KBMS</a>
+            </div>
+            <ul class="navbar-brand navbar-right">
+
+                <li class="dropdown nav-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span><img src="/resource/sao/icon/skills_hover.png"></span>
+                        <span>KinderRiven</span>
+                    </a>
+
+                    <ul class="dropdown-menu user-menu">
+                        <li>
+                            <a href="#">
+                                <span><img src="/resource/sao/icon/option_normal.png"></span>
+                                <span>个人资料</span>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                            <span><img src="/resource/sao/icon/option_normal.png"></span>
+                            <span>退出</span>
+                        </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="m_container">
+        <dic class=" clearfix u_frame">
+            <div class="u_img">
+                <img src="/resource/image/user/0.jpg">
+            </div>
+            <div class="u_info">
+                <div class="u_name">
+                    <a>KinderRiven</a>
+                </div>
+                <div class="u_follow_frame clearfix">
+                    <div class="u_follow">
+                        <div class="u_follow_num">24</div>
+                        <div class="u_follow_text">粉丝</div>
+                    </div>
+                    <div class="u_follow u_follow_board">
+                        <div class="u_follow_num">17</div>
+                        <div class="u_follow_text">关注</div>
+                    </div>
+                    <div class="u_follow">
+                        <div class="u_follow_num">66</div>
+                        <div class="u_follow_text">上传</div>
+                    </div>
+                </div>
+                <div class="u_introduce">
+                    <div class="u_introduce_line">
+                        <span>个人介绍：</span>
+                        <span>一个脱离了低级趣味的人</span>
+                    </div>
+                    <div class="u_introduce_line">
+                        <span>兴趣方向：</span>
+                        <span class="label label-danger">ACM</span>
+                        <span class="label label-primary">算法</span>
+                        <span class="label label-default">萌新</span>
+                    </div>
+                </div>
+            </div>
+        </dic>
+        <div class="u_set">
+            <div class="u_set_create">
+                <div class="u_set_title">
+                    Me创建的书单
+                </div>
+                <div class="u_set_container clearfix">
+                    <div class="u_book_set" id="u_book_set">
+                        <!--<div class="u_book_item">
+                            <div class="u_book_img">
+                                <div class="u_book_info">
+                                    <div class="u_book_collect">收藏：12</div>
+                                </div>
+                                <img src="/resource/image/set/1.jpg">
+                            </div>
+                            <div class="u_book_title">算法导论</div>
+                        </div>-->
+                    </div>
+                    <div class="u_book_add">
+                        <img src="/resource/image/set/-1.jpg" data-toggle="modal" data-target="#create_book">
+                        <div class="u_book_title">创建书单</div>
+                    </div>
+                </div>
+            </div>
+            <div class="u_set_collect">
+                <div class="u_set_title">
+                    Me收藏的书单
+                </div>
+                <div class="u_set_container clearfix">
+                </div>
+            </div>
+            <!-- 创建书单弹窗 -->
+            <div class="modal fade" id="create_book">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="c_set_name">创建书单</div>
+                        </div>
+                        <div class="modal-body clearfix">
+                            <div class="c_set_img">
+                                <img src="/resource/image/set/1.jpg">
+                            </div>
+                            <div class="c_set_info">
+                                <div class="c_set_title">书单名称</div>
+                                <input type="text" class="form-control" id="set_name">
+                                <div class="c_set_title">书单描述</div>
+                                <textarea class="form-control" id="set_description"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" id="c_set_btn">创建</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

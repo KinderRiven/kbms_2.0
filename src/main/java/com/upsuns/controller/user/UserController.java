@@ -1,12 +1,15 @@
 package com.upsuns.controller.user;
 
 
+import com.upsuns.function.CookieUtils;
 import com.upsuns.po.user.User;
 import com.upsuns.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
@@ -67,13 +70,39 @@ public class UserController {
             //创建cookie
             Cookie usrCookie = new Cookie("username", username);
             Cookie pwdCookie = new Cookie("password", password);
+            Cookie idCookie = new Cookie("id", user.getId().toString());
             response.addCookie(usrCookie);
             response.addCookie(pwdCookie);
+            response.addCookie(idCookie);
             map.put("result", "yes");
         }   else{
             map.put("result", "no");
         }
         return map;
+    }
+
+    @RequestMapping("/upload_usr_img.action")
+    @ResponseBody
+    public Map<String, String> uploadUserImage(HttpServletRequest request,
+                                           HttpServletResponse response, HttpSession session,
+                                           @RequestParam(value = "avatar_file") MultipartFile file)
+            throws Exception {
+
+        Map<String, String> ret = new HashMap<String, String>();
+
+        String json = request.getParameter("avatar_data");
+        Cookie[] cookies = request.getCookies();
+        String username = CookieUtils.getValueByName(cookies, "username");
+        String saveRoot = request.getServletContext().getRealPath("/") + "/resource/image/user/";
+
+
+        if(file == null) {
+            System.out.println("上传头像为空");
+        } else{
+            userService.uploadUserImage(file, json, saveRoot, username);
+            ret.put("result", "yes");
+        }
+        return ret;
     }
 
     //logout

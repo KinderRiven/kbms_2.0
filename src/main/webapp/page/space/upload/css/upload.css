@@ -60,7 +60,7 @@ file-table-head>ul>li>div{  padding: 5px;  }
     height: 100%;
 }
 
-.file-name{  font-weight: 200;  }
+.file-name{  font-weight: 400;  }
 .file-table-body-item :hover{  cursor: pointer;  font-size: 19px;  }
 
 .file-table-head-fname img{
@@ -68,7 +68,13 @@ file-table-head>ul>li>div{  padding: 5px;  }
     height: 22px;
 }
 .fname-op-box{  float: right;  height: 100%;}
-.fname-op-box span img:hover{  width: 24px;  width: 24px;  }
+.fname-op-box span img:hover{
+    width: 24px;
+    width: 24px;
+}
+.fname-op-box img:hover{
+    opacity: 0.8;
+}
 .fname-op-box img{
     vertical-align: middle;
     margin: 5px;
@@ -87,4 +93,49 @@ file-table-head>ul>li>div{  padding: 5px;  }
     margin: 3px 0;
     padding:0 0 0 5px;
     margin-right: 10px;
+}
+
+.modal-title{
+    font-size: 20px;
+    font-weight: 700;
+}
+.modal-set-item{
+    padding: 8px 0;
+    margin-bottom: 5px;
+}
+
+.modal-set-item:hover{
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.modal-set-img{
+    float: left;
+    margin-right: 20px;
+}
+.modal-set-img img{
+
+    width: 60px;
+    height: 60px;
+    padding: 1px;
+    border: 1px solid #d5d5d5;
+}
+
+.modal-set-info{
+    float: left;
+}
+
+.modal-set-name{
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 25px;
+}
+
+.modal-set-description{
+    color: grey;
+}
+
+.modal-body{
+    max-height: 500px;
+    overflow-y: scroll;
 }

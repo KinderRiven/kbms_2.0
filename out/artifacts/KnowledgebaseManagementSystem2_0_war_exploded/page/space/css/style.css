@@ -1,6 +1,6 @@
 
 /* header */
-.header{  background: black;  min-height: 40px;  border-bottom: 5px solid; }
+.header{  background: black;  min-height: 40px;  border-bottom: 5px solid red; }
 .navbar-brand{
     margin: 0;
     color: white;

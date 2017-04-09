@@ -1,0 +1,191 @@
+body{
+    background-color: whitesmoke;
+}
+.m_container{
+
+    width: 900px;
+    min-height: 700px;
+    margin: 65px auto;
+    background-color: white;
+    border-radius: 10px;
+
+    padding: 40px;
+}
+
+.u_frame{
+}
+
+.u_img{
+    float: left;
+}
+
+.u_img img{
+
+    display: block;
+    width: 180px;
+    height: 180px;
+    padding: 3px;
+    border: 1px solid #d5d5d5;
+
+}
+
+.u_info{
+    float: left;
+    width: 600px;
+    margin-left: 20px;
+    padding-bottom: 10px;
+}
+.u_name{
+    border-bottom: 2px solid whitesmoke;
+    vertical-align: middle;
+}
+.u_name span{
+    padding: 2px 5px;
+    font-size: 17px;
+    font-weight: 700;
+    background-color: red;
+    color: white;
+    vertical-align: middle;
+}
+.u_name a{
+    padding: 2px 5px;
+    font-size: 25px;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.u_follow_frame{
+    margin-top: 10px;
+}
+
+.u_follow{
+    float: left;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.u_follow_num{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.u_follow_text{
+    font-size: 13px;
+    font-weight: 200;
+}
+.u_follow_board{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+.u_introduce{  margin-top: 15px;  }
+.u_introduce_line{  line-height: 25px;  }
+.u_introduce_line span{
+    font-size: 13px;
+}
+.u_set{
+    margin-top: 20px;
+}
+.u_set_title{
+    font-size: 25px;
+    font-weight: 500;
+    padding: 3px 0;
+    border-bottom: 2px solid red;
+
+}
+
+.u_book_item{
+    padding: 30px;
+    float: left;
+}
+.u_book_item:hover{
+    opacity: 0.9;
+}
+.u_book_img{
+    position: relative;
+}
+
+.u_book_info{
+    position: absolute;
+    bottom: 0;
+    margin: 5px;
+    width: 120px;
+    opacity: 0.5;
+    padding: 2px;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+}
+
+.u_book_download{
+    float: left;
+}
+
+.u_book_collect{
+    float: right;
+}
+
+.u_book_item:hover{
+    cursor: pointer;
+}
+
+.u_book_item img{
+    width: 130px;
+    height: 130px;
+    padding: 3px;
+    border: 1px solid #d5d5d5;
+}
+.u_book_title{
+    text-align: center;
+    padding-top: 5px;
+    font-size: 14px;
+    font-weight: 300;
+}
+.c_set_img{
+    float: left;
+    margin-right: 20px;
+}
+.c_set_img img{
+    display: block;
+    width: 150px;
+    height: 150px;
+    padding: 3px;
+    border: 1px solid red;
+}
+
+.c_set_info{
+    float: left;
+}
+
+.c_set_info input{
+    width: 350px;
+}
+
+.c_set_title{
+    font-size: 15px;
+    font-weight: 600;
+    padding: 2px 0;
+}
+ .c_set_info textarea{
+    height: 65px;
+ }
+
+ .c_set_modal{
+     opacity: 0.9;
+ }
+
+ .c_set_name{
+     font-size: 20px;
+     font-weight: 700;
+ }
+
+ .u_btn_group{
+     margin-top: 20px;
+ }
+
+ .u_btn_group button{
+     width: 80px;
+     font-size: 12px;
+     margin-right: 10px;
+     text-align: center;
+     font-weight: 700;
+ }

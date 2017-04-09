@@ -33,8 +33,8 @@ public class TagServerQueue extends Thread{
 
     //标签存储映射
     private List<String> tagNames;
-    private Map<String, Integer> tagMap;
-    private Map<String, Integer> weightMap;
+    private Map<String, Integer> tagMap;    //出现次数
+    private Map<String, Integer> weightMap; //标签名称和权值的映射
 
     private boolean isRunning;
 

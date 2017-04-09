@@ -5,6 +5,7 @@
 var root_id;
 var current_id;
 var file_list;
+var select_file;
 
 function resizeWindow(){
 

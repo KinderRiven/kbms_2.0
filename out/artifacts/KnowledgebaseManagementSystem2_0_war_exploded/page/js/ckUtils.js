@@ -3,6 +3,18 @@
  */
 
 var bool_login = false;
+function getCookieParam(key){
+
+    var cookie = (document.cookie + ';').split(' ');
+    console.log(cookie);
+
+    for(var i = 0; i < cookie.length; i++){
+        var map = cookie[i].split('=');
+        if(map[0] == key){
+            return map[1].substr(0, map[1].length - 1);
+        }
+    }
+}
 function boolLogin(){
 
     var cookie = document.cookie;

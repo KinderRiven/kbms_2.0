@@ -15,9 +15,15 @@
     <script src="/plugin/bootstrap-fileinput-master/js/fileinput.min.js"></script>
     <script src="/plugin/bootstrap-fileinput-master/js/fileinput_locale_zh.js"></script>
     <link href="/plugin/bootstrap-fileinput-master/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/plugin/cropper/cropper.min.css" rel="stylesheet" type="text/css">
+    <script src="/plugin/cropper/cropper.min.js"></script>
+
+    <link href="/page/css/imgUtils.css" rel="stylesheet" type="text/css">
+    <script src="/page/js/imgUtils.js"></script>
 
     <!-- my js -->
     <script src="/page/space/user/js/user.js"></script>
+    <script src="/page/js/ckUtils.js"></script>
 
     <!-- my css -->
     <link href="/page/space/css/style.css" rel="stylesheet" type="text/css">
@@ -61,7 +67,8 @@
             <ul>
                 <li><a href="/page/space/upload/html/upload.html"><img src="/resource/sao/icon/folder_normal.png">文件列表</a></li>
                 <li><a href="#"><img src="/resource/sao/icon/appearance_normal.png">用户日志</a></li>
-                <li><a href="#"><img src="/resource/sao/icon/skills_normal.png">朋友圈</a></li>
+                <li><a href="/page/space/home/html/user_home.html"><img src="/resource/sao/icon/skills_normal.png">个人主页</a></li>
+                <li><a href="#"><img src="/resource/sao/icon/guide_normal.png">朋友圈</a></li>
             </ul>
         </div>
         <div class="content">
@@ -83,10 +90,56 @@
                     </div>
 
                 </div>
-                <div class="form-middle">
-                    <div class="user-img">
-                        <img src="/resource/image/user.jpg">
+                <div class="form-middle" id="crop-avatar">
+
+                    <div class="user-img avatar-view" id="user-img">
+                        <img src="/resource/image/user/0.jpg">
                     </div>
+
+                    <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <form class="avatar-form" action="/upload_usr_img.action" enctype="multipart/form-data" method="post">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="avatar-body">
+
+                                            <!-- Upload image and data -->
+                                            <div class="avatar-upload">
+                                                <input type="hidden" class="avatar-src" name="avatar_src">
+                                                <input type="hidden" class="avatar-data" name="avatar_data">
+                                                <label for="avatarInput">Local upload</label>
+                                                <input type="file" class="avatar-input" id="avatarInput" name="avatar_file">
+                                            </div>
+
+                                            <!-- Crop and preview -->
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="avatar-wrapper"></div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="avatar-preview preview-lg"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row avatar-btns">
+                                                <div class="col-md-3 float-right">
+                                                    <button type="submit" class="btn btn-primary btn-block avatar-save">上传头像</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div><!-- /.modal -->
+
                     <div class="user-name">
                         <a>KinderRiven</a>
                     </div>

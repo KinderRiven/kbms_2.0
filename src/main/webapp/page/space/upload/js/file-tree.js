@@ -71,7 +71,7 @@ function updateFileFrame(data){
         var item = '';
         item += '<div class="file-table-body-item">';
         //name
-        item += '<div class="item-fname" fid="' + nodes[i].id  +'" ftype="'
+        item += '<div class="item-fname" fid="' + nodes[i].fileId + '"' +  ' nid="' + nodes[i].id  +'" ftype="'
             + nodes[i].type + '">';
         //icon
         var img = '<img src="' + getImageByType(nodes[i].type) + '">';
@@ -80,10 +80,12 @@ function updateFileFrame(data){
         var name = '<span class="file-name">' + nodes[i].name + '</span>';
         item += name;
         //option box
-        var op = '<div class="fname-op-box">'
-            + '<img src="/resource/sao/icon/modify_normal.png">'
-            + '<img src="/resource/sao/icon/appearance_normal.png">'
-            + '<img src="/resource/sao/icon/remove_normal.png"></div>';
+        var op = '<div class="fname-op-box">';
+          op += '<img src="/resource/sao/icon/modify_normal.png">';
+          op += '<img src="/resource/sao/icon/appearance_normal.png">';
+          if(nodes[i].type != 'folder')
+            op += '<img src="/resource/sao/icon/add_normal.png" data-toggle="modal" data-target="#add_book">';
+          op += '<img src="/resource/sao/icon/remove_normal.png"></div>';
 
         if(i != 0) {item += op;}
         item += '</div>';
@@ -131,9 +133,17 @@ function addFunction(){
         $(op).hide();
     });
 
+    $('.fname-op-box').click(function(){
+
+        //通过节点进行链接
+        select_file = $(this).parent().attr('nid');
+        console.log(select_file);
+
+    });
+
     //添加文件夹事件
     $('#add-folder').click(function(){
-        $('#add-folder-item').show();
+        $('#add-folder-item').show(300);
     });
 
     $('#add-folder-ok').click(function(){
@@ -142,7 +152,7 @@ function addFunction(){
     });
 
     $('#add-folder-cancel').click(function(){
-        $('#add-folder-item').hide();
+        $('#add-folder-item').hide(300)
     });
 
 }

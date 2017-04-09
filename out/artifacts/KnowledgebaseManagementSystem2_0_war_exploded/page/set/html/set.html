@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--bootstrap + jquery-->
+    <script src="/framework/jquery/jquery-2.2.2.min.js"></script>
+    <link href="/framework/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="/framework/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link href="/framework/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+    <!-- plugin -->
+    <script src="/plugin/bootstrap-fileinput-master/js/fileinput.min.js"></script>
+    <script src="/plugin/bootstrap-fileinput-master/js/fileinput_locale_zh.js"></script>
+    <link href="/plugin/bootstrap-fileinput-master/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/plugin/cropper/cropper.min.css" rel="stylesheet" type="text/css">
+    <script src="/plugin/cropper/cropper.min.js"></script>
+    <!-- my js -->
+    <script src="/page/set/js/set.js"></script>
+    <script src="/page/js/timeUtils.js"></script>
+
+    <!-- my css -->
+    <link href="/page/space/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/page/set/css/set.css" rel="stylesheet" type="text/css">
+    <link href="/page/css/style.css" rel="stylesheet" type="text/css">
+
+    <link href="/page/css/imgUtils.css" rel="stylesheet" type="text/css">
+    <script src="/page/js/imgUtils.js"></script>
+    <script src="/page/js/ckUtils.js"></script>
+
+</head>
+<body>
+    <nav class="header navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/page/search/html/search.html">KBMS</a>
+            </div>
+            <ul class="navbar-brand navbar-right">
+
+                <li class="dropdown nav-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span><img src="/resource/sao/icon/skills_hover.png"></span>
+                        <span>KinderRiven</span>
+                    </a>
+
+                    <ul class="dropdown-menu user-menu">
+                        <li>
+                            <a href="#">
+                                <span><img src="/resource/sao/icon/option_normal.png"></span>
+                                <span>个人资料</span>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                            <span><img src="/resource/sao/icon/option_normal.png"></span>
+                            <span>退出</span>
+                        </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="m_container">
+        <dic class=" clearfix u_frame" id="crop-avatar">
+
+            <div class="u_img avatar-view">
+                <img src="/resource/image/user/0.jpg" id="user-img">
+            </div>
+            <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <form class="avatar-form" action="/upload_set_img.action" enctype="multipart/form-data" method="post">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="avatar-body">
+
+                                    <!-- Upload image and data -->
+                                    <div class="avatar-upload">
+                                        <input type="hidden" class="avatar-src" name="avatar_src">
+                                        <input type="hidden" class="avatar-data" name="avatar_data">
+                                        <label for="avatarInput">Local upload</label>
+                                        <input type="file" class="avatar-input" id="avatarInput" name="avatar_file">
+                                    </div>
+
+                                    <!-- Crop and preview -->
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="avatar-wrapper"></div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="avatar-preview preview-lg"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row avatar-btns">
+                                        <div class="col-md-3 float-right">
+                                            <button type="submit" class="btn btn-primary btn-block avatar-save">上传头像</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div> -->
+                        </form>
+                    </div>
+                </div>
+            </div><!-- /.modal -->
+
+            <div class="u_info">
+                <div class="u_name">
+                    <span class="label label-default">书单</span>
+                    <a id="set_name">算法学习路线</a>
+                </div>
+                <div class="u_introduce">
+                    <div class="u_introduce_line">
+                        <span>书单作者：</span>
+                        <span>KinderRiven</span>
+                    </div>
+                    <div class="u_introduce_line">
+                        <span id="set_description">书单简介：</span>
+                        <span></span>
+                    </div>
+                    <div class="u_introduce_line">
+                        <span>书单标签：</span>
+                        <span class="label label-danger">ACM</span>
+                        <span class="label label-primary">算法</span>
+                        <span class="label label-default">计算机</span>
+                    </div>
+                </div>
+                <div class="u_btn_group">
+                    <button class="btn btn-primary">下载</button>
+                    <button class="btn btn-default">分享</button>
+                    <button class="btn btn-default">收藏</button>
+                </div>
+            </div>
+
+        </dic>
+        <div class="u_set">
+            <div class="u_set_create">
+                <div class="u_set_title">文档列表</div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>文档标题</th>
+                        <th>大小</th>
+                        <th>上传时间</th>
+                    </tr>
+                    </thead>
+                    <tbody id="set_content">
+                    </tbody>
+                </table>
+            </div>
+            <div class="u_set_collect">
+                <div class="u_set_title">评论</div>
+                <div class="u_set_container clearfix">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.upsuns.mapper.set.BookSetMapper">
+
+    <resultMap id="BaseResultMap" type="com.upsuns.po.set.BookSet">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_id" jdbcType="INTEGER" property="uid"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="description" jdbcType="LONGVARCHAR" property="description"/>
+        <result column="collect" jdbcType="INTEGER" property="collect"/>
+    </resultMap>
+
+    <insert id="insertBookSet"  useGeneratedKeys="true" keyProperty="id" parameterType="BookSet">
+        INSERT INTO book_set
+        (name, description, collect, user_id)
+        VALUES
+        (#{name}, #{description}, #{collect}, #{uid});
+    </insert>
+
+    <select id="selectBookSetByUserId" resultMap="BaseResultMap">
+        SELECT * FROM book_set WHERE user_id = #{0};
+    </select>
+
+    <select id="selectBookSetById" resultMap="BaseResultMap">
+        SELECT * FROM book_set WHERE id = #{0};
+    </select>
+
+</mapper>

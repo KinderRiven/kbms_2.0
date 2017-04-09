@@ -8,6 +8,8 @@
     <bean class="com.upsuns.service.document.DocServiceImpl"></bean>
     <bean class="com.upsuns.service.node.NodeServiceImpl"></bean>
     <bean class="com.upsuns.service.tag.TagServiceImpl"></bean>
+    <bean class="com.upsuns.service.set.SetServiceImpl"></bean>
+    <bean class="com.upsuns.service.set.SetMapServiceImpl"></bean>
 
     <!-- 队列控制-->
     <bean class="com.upsuns.queue.TagServerQueue" id="tagServerQueue">
