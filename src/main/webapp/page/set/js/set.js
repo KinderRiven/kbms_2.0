@@ -1,4 +1,6 @@
 /* Created by KinderRiven on 2017/4/9. */
+
+var sid;
 function GetQueryString(name)
 {
     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -8,7 +10,7 @@ function GetQueryString(name)
 
 function getSetContent(){
 
-    var sid = GetQueryString('sid');
+    sid = GetQueryString('sid');
     console.log(sid);
 
     $.ajax({
@@ -76,6 +78,8 @@ function updatSetInfo(data){
 
     document.getElementById('set_name').innerHTML = data.name;
     document.getElementById('set_description').innerHTML = '书单描述：' + data.description;
+    var img = '<img src="/resource/image/set/' + sid + '.jpg" id="user-img" sid="' + sid + '">';
+    document.getElementById('s_img').innerHTML = img;
 }
 
 $(document).ready(function(){

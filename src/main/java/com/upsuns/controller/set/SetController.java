@@ -141,15 +141,12 @@ public class SetController {
 
         String json = request.getParameter("avatar_data");
         Cookie[] cookies = request.getCookies();
-        String setId = request.getParameter("set_id");
         String saveRoot = request.getServletContext().getRealPath("/") + "/resource/image/set/";
 
-        System.out.println(setId);
-
-        if(file == null || setId == null) {
+        if(file == null) {
             System.out.println("上传封面为空");
         } else{
-            setService.uploadSetImage(file, json, saveRoot, Integer.parseInt(setId));
+            setService.uploadSetImage(file, json, saveRoot);
             ret.put("result", "yes");
         }
         return ret;

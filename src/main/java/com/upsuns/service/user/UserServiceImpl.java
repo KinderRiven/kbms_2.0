@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService {
         String type = TextUtils.getFileSuffix(file.getOriginalFilename());
         if(user == null) return false;
 
-        String savePath = saveRoot + user.getId() + "." + type;
+        String savePath = saveRoot + user.getId() + ".jpg";
         File saveFile = new File(savePath);
         file.transferTo(saveFile);
 

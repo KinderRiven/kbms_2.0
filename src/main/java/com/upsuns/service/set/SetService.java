@@ -18,5 +18,5 @@ public interface SetService {
 
     public BookSet getBookSetById(Integer id) throws Exception;
 
-    public boolean uploadSetImage(MultipartFile file, String json, String saveRoot, Integer sid) throws Exception;
+    public boolean uploadSetImage(MultipartFile file, String json, String saveRoot) throws Exception;
 }

@@ -52,14 +52,14 @@ public class SetServiceImpl implements SetService{
         return bookSetMapper.selectBookSetById(id);
     }
 
-    public boolean uploadSetImage(MultipartFile file, String json, String saveRoot, Integer sid) throws Exception{
+    public boolean uploadSetImage(MultipartFile file, String json, String saveRoot) throws Exception{
 
         CropperUtils cropperUtils = new CropperUtils();
         cropperUtils.parseJson(json);
 
         String type = TextUtils.getFileSuffix(file.getOriginalFilename());
 
-        String savePath = saveRoot + sid + "." + type;
+        String savePath = saveRoot + cropperUtils.getSid() + ".jpg";
         File saveFile = new File(savePath);
         file.transferTo(saveFile);
 

@@ -1,3 +1,11 @@
+function GetQueryString(name)
+{
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if(r!=null)return  unescape(r[2]); return null;
+}
+
+
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as anonymous module.
@@ -12,8 +20,8 @@
 })(function ($) {
 
     'use strict';
-
     var console = window.console || { log: function () {} };
+    var sid = GetQueryString('sid');
 
     function CropAvatar($element) {
         this.$container = $element;
@@ -206,6 +214,7 @@
                             '"y":' + e.y,
                             '"height":' + e.height,
                             '"width":' + e.width,
+                            '"sid":' + sid,
                             '"rotate":' + e.rotate + '}'
                         ].join();
 
