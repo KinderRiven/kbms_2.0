@@ -68,9 +68,9 @@ public class UserServiceImpl implements UserService {
         if(user == null) return false;
 
         String savePath = saveRoot + user.getId() + ".jpg";
-        File saveFile = new File(savePath);
-        file.transferTo(saveFile);
-
+        cropperUtils.readUsingImageReader(file.getInputStream(), savePath);
+        //File saveFile = new File(savePath);
+        //file.transferTo(saveFile);
         return true;
     }
 }

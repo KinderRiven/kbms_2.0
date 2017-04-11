@@ -60,8 +60,9 @@ public class SetServiceImpl implements SetService{
         String type = TextUtils.getFileSuffix(file.getOriginalFilename());
 
         String savePath = saveRoot + cropperUtils.getSid() + ".jpg";
-        File saveFile = new File(savePath);
-        file.transferTo(saveFile);
+        cropperUtils.readUsingImageReader(file.getInputStream(), savePath);
+        //File saveFile = new File(savePath);
+        //file.transferTo(saveFile);
 
         return true;
     }

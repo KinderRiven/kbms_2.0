@@ -22,8 +22,8 @@ body{
 .u_img img{
 
     display: block;
-    width: 180px;
-    height: 180px;
+    width: 180px !important;
+    height: 180px !important;
     padding: 3px;
     border: 1px solid #d5d5d5;
 
