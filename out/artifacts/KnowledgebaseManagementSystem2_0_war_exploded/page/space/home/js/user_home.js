@@ -49,12 +49,16 @@ function updateCreateSet(data){
 }
 
 function updateUserInfo(){
-    
+
+    var uid = getCookieParam('id');
+    var img = '<img src="/resource/image/user/' + uid + '.jpg">';
+    document.getElementById('u_img').innerHTML = img;
 }
 
 $(document).ready(function(){
 
     getBookSet();
+    updateUserInfo();
 
     $('.m_container').hide();
     $('.m_container').fadeIn(500);

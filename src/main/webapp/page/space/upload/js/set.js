@@ -31,7 +31,7 @@ function updateCreateSet(data){
 
         item = '<div class="modal-set-item clearfix" id="' + data[i].id + '">';
         item += '<div class="modal-set-img">';
-        item += '<img src="/resource/image/set/0.jpg">';
+        item += '<img src="/resource/image/set/' + data[i].id +  '.jpg">';
         item += '</div>';
         item += '<div class="modal-set-info">';
         item += '<div class="modal-set-name">'  + data[i].name + '</div>';
