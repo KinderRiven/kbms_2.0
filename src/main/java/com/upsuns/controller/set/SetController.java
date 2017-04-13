@@ -140,6 +140,7 @@ public class SetController {
         Map<String, String> ret = new HashMap<String, String>();
 
         String json = request.getParameter("avatar_data");
+        System.out.println(json);
         Cookie[] cookies = request.getCookies();
         String saveRoot = request.getServletContext().getRealPath("/") + "/resource/image/set/";
 

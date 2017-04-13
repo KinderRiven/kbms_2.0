@@ -2,10 +2,15 @@ package com.upsuns.queue;
 
 import com.upsuns.algorithm.automation.MatchInfo;
 import com.upsuns.algorithm.automation.WordTable;
+import com.upsuns.algorithm.simhash.SimHash;
 import com.upsuns.mapper.document.DocMapper;
+import com.upsuns.mapper.hash.HashCodeMapper;
+import com.upsuns.mapper.hash.SimListMapper;
 import com.upsuns.mapper.tag.DocTagMapper;
 import com.upsuns.mapper.tag.TagMapper;
 import com.upsuns.po.document.Document;
+import com.upsuns.po.hash.HashCode;
+import com.upsuns.po.hash.SimList;
 import com.upsuns.po.tag.DocTag;
 import com.upsuns.po.tag.Tag;
 import com.upsuns.service.tag.TagService;
@@ -22,12 +27,17 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class TagServerQueue extends Thread{
 
-
     @Autowired
     private DocTagMapper docTagMapper;
 
     @Autowired
     private TagMapper tagMapper;
+
+    @Autowired
+    private HashCodeMapper hashCodeMapper;
+
+    @Autowired
+    private SimListMapper simListMapper;
 
     private BlockingQueue<Document> queue;
 
@@ -51,6 +61,8 @@ public class TagServerQueue extends Thread{
         isRunning = running;
     }
 
+    //初始化队列
+    //建立AC自动机树
     public void init() throws Exception{
 
         List<Tag> tags = tagMapper.selectAllTags();
@@ -65,12 +77,13 @@ public class TagServerQueue extends Thread{
         }
     }
 
-    public  void parseTags(Document document) throws Exception{
+    public void parseTag(Document document) throws Exception{
 
         WordTable table = WordTable.compile(tagNames);
         List<MatchInfo> info = table.search(document.getContent());
         Map<String, Integer> map = new HashMap<String, Integer>();
-        System.out.println(info);
+        List<String> keys = new ArrayList<String>();
+        List<Integer> weights = new ArrayList<Integer>();
 
         for(MatchInfo each : info){
 
@@ -91,9 +104,28 @@ public class TagServerQueue extends Thread{
 
             //出现次数 * 权值 >= 5
             if(value * weight >= 5) {
-                System.out.println(word + ":" + value.toString() + "-" + weight.toString());
-                DocTag docTag = new DocTag(document.getId(), word, tagMap.get(word));
-                docTagMapper.insertDocTag(docTag);
+                keys.add(word);
+                weights.add(weight);
+                docTagMapper.insertDocTag(new DocTag(document.getId(), word, tagMap.get(word)));
+            }
+        }
+        String codes = SimHash.simHash(keys, weights);
+        hashCodeMapper.insertHashCode(new HashCode(document.getId(), codes));
+        System.out.println(info);
+        System.out.println(codes);
+    }
+
+    public void parseSim(Document document) throws Exception{
+
+        List<HashCode> hashCodes = hashCodeMapper.selectAllHashCode();
+        HashCode code = hashCodeMapper.selectHashCodeByDocId(document.getId());
+
+        for(HashCode hashCode : hashCodes) {
+            Integer hamming = SimHash.hmSize(code.getHashCode(), hashCode.getHashCode());
+            if(hamming <= 3 && !code.getDocId().equals(hashCode.getDocId())){
+                SimList simList = new SimList(
+                        code.getDocId(), hashCode.getDocId(), hamming, new Date().getTime());
+                simListMapper.insertSimList(simList);
             }
         }
     }
@@ -105,7 +137,8 @@ public class TagServerQueue extends Thread{
             System.out.println("标签处理队列开始");
             while(isRunning){
                 Document document = queue.take();
-                parseTags(document);
+                parseTag(document);
+                parseSim(document);
             }
             System.out.println("标签处理队列完成");
         } catch (Exception e){}

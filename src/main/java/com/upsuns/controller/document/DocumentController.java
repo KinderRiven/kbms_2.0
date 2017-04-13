@@ -129,7 +129,7 @@ public class DocumentController {
         return docs;
     }
 
-    @RequestMapping("doc_get.action")
+    @RequestMapping("/doc_get.action")
     @ResponseBody
     public Document documentGet
             (HttpServletRequest request, HttpServletResponse response, HttpSession session)
@@ -144,4 +144,5 @@ public class DocumentController {
             return null;
         }
     }
+
 }

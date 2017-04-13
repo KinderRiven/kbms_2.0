@@ -44,7 +44,7 @@ public class CropperUtils {
                     height = (int) Double.parseDouble(number);
                 }
                 else if(name.equals("sid")){
-                    if(number.charAt(0) <= '0' || number.charAt(0) >= '9');
+                    if(number.charAt(0) < '0' || number.charAt(0) > '9');
                     else
                         sid = (int) Double.parseDouble(number);
                 }

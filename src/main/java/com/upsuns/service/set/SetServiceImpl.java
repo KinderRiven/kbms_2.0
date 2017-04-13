@@ -37,7 +37,6 @@ public class SetServiceImpl implements SetService{
 
         User user = userMapper.selectByUserName(username);
         if(user != null) {
-            System.out.println(user.getId());
             return bookSetMapper.selectBookSetByUserId(user.getId());
         }
         else

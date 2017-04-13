@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.upsuns.mapper.hash.SimListMapper">
+
+    <resultMap id="BaseResultMap" type="com.upsuns.po.hash.SimList">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="doc_id" jdbcType="INTEGER" property="docId"/>
+        <result column="sim_id" jdbcType="INTEGER" property="simId"/>
+        <result column="dist" jdbcType="INTEGER" property="dist"/>
+        <result column="time" jdbcType="BIGINT" property="time"/>
+    </resultMap>
+
+    <insert id="insertSimList" useGeneratedKeys="true" keyProperty="id" parameterType="SimList">
+        INSERT INTO sim_list
+        (doc_id, sim_id, dist, time)
+        VALUES
+        (#{docId}, #{simId}, #{dist}, #{time});
+    </insert>
+
+    <delete id="deleteSimListByDocId" parameterType="int">
+        DELETE FROM sim_list WHERE doc_id = #{0};
+    </delete>
+
+    <select id="selectSimListByDocId" resultMap="BaseResultMap">
+      SELECT * FROM sim_list WHERE doc_id = #{0};
+    </select>
+
+</mapper>

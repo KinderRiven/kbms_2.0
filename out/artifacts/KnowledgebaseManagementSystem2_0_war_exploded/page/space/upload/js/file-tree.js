@@ -107,12 +107,20 @@ function updateFileFrame(data){
 
 function addFunction(){
 
-    $('.item-fname').click(function(){
-        var fid = $(this).attr('fid');
-        var type = $(this).attr('ftype');
-        if((type == 'folder' || type == 'back') && fid != '-1') {
-            current_id = fid;
-            getNodeList(fid);
+    $('.file-name').click(function(){
+
+        var root = $(this).parent();
+
+        var nid = $(root).attr('nid');
+        var type = $(root).attr('ftype');
+        if((type == 'folder' || type == 'back') && nid != '-1') {
+            current_id = nid;
+            getNodeList(nid);
+        }
+        else if(nid != -1){
+            var fid = $(root).attr('fid');
+            //window.location.href = ("/page/document/html/document.html?id=" + fid);
+            window.open("/page/document/html/document.html?id=" + fid)
         }
     });
 

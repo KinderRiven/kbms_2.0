@@ -10,6 +10,7 @@
     <bean class="com.upsuns.service.tag.TagServiceImpl"></bean>
     <bean class="com.upsuns.service.set.SetServiceImpl"></bean>
     <bean class="com.upsuns.service.set.SetMapServiceImpl"></bean>
+    <bean class="com.upsuns.service.hash.HashServiceImpl"></bean>
 
     <!-- 队列控制-->
     <bean class="com.upsuns.queue.TagServerQueue" id="tagServerQueue">
